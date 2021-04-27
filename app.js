@@ -78,7 +78,7 @@ withdrowalApiController(app)
 confirmationListApiController(app)
 //end of routes
 //start of listener
-const port = 3000 || process.env.PORT
+const port =  process.env.PORT||3000
 app.listen(port,()=>{
     console.log(`we are live at port ${port}`)
 })
