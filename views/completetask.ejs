@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<!-- 
+Template Name: Savehyip
+Version: 1.0.0
+Author: WebstrotSavehyip
+
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zxx">
+<!--[endif]-->
+
+
+<!-- Mirrored from webstrot.com/html/savehyip/light_version/email_notification.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Apr 2021 13:15:07 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8" />
+    <title>Savehyip Dashboard HTML Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description" content="Savehyip" />
+    <meta name="keywords" content="Savehyip" />
+    <meta name="author" content="" />
+    <meta name="MobileOptimized" content="320" />
+    <!--Template style -->
+    <link rel="stylesheet" type="text/css" href="/css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="/css/flaticon2.css" />
+	<link rel="stylesheet" type="text/css" href="/css/dropify.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="/css/nice-select.css" />
+	<link rel="stylesheet" type="text/css" href="/css/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/css/owl.theme.default.css">
+	<link rel="stylesheet" type="text/css" href="/css/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="/css/datatables.css" />
+    <link rel="stylesheet" type="text/css" href="/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/responsive.css" />
+	 <!--favicon-->
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+<script src='../../../google_analytics_auto.js'></script></head>
+<!-- color picker start -->
+
+<body>
+    <%- include('includes/nav'); -%>
+            <!--  my account wrapper end -->    
+            <!--  email wrapper start -->
+             <div class="email_notifcation_wrapper float_left">
+                <div class="row">
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-12">
+                        <div class="sv_heading_wraper">
+
+                            <h3>Complet Task</h3>
+                            <%if(message.length>0){%>
+                                <div class="alert alert-danger">
+                                    <%= message %>
+                                </div>
+                                 <%}%>
+                        </div>
+                    </div>
+                </div>
+                <div class="email_notify_top float_left">
+                    <%if(taskType=="blog"){%>
+                        <div class="row">
+                            <div class="col-xl-3 col-md-6 col-lg-4 col-sm-12 col-12">
+                                <div class="change_password_wrapper float_left">
+                                    <form action="/task/blogcompletetask" method="post">
+                                        <div class="change_pass_field float_left">	
+                                        <div class="payment_gateway_wrapper payment_select_wrapper">
+                                        <label>Write a blog of <%=task.words%> words about <%=task.topic%> and earn certainamount</label>
+                                    </div>							
+                                            <div class="change_field">
+                                                <label>Title</label>
+                                                    <input type="text" name="title" placeholder="title" required>
+                                            </div>
+                                            <div class="change_field">
+                                                <label>Writer</label>
+                                                    <input type="url" name="link" placeholder="title" required>
+                                            </div> 
+                                            <div class="change_field">
+                                                <label>Blog :</label>
+                                                    <textarea name="blog" id="" cols="100" rows="10"></textarea>
+                                            </div>                        
+                                            <div class="about_btn  login_btn float_left">
+                                                <ul>
+                                                    <li>
+                                                        <button type="submit">Submit</button>
+                                                    </li>
+                                                </ul>
+                                                </div>
+                                            </div>
+                                        </form>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <%}else if(taskType=="invite"){%>
+                            <p>Invite <%=task.invites%> and earn <%= task.baseAmount%></p>
+                            <form action="/task/invitecompletetask" method="post">
+                                <div class="about_btn  login_btn float_left">
+                                    <ul>
+                                        <li>
+                                            <button type="submit">Complete?</button>
+                                        </li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </form>
+                            <%}else if(taskType=="link"){%>
+                                <%if(task.task == "share"){%>
+                                    Share this link to  whats app twitter or facebook and post the screenshot
+                                    <div class="input-group">
+                                        <input type="text" id="copyRefLink" class="form-control"
+                                            value='<%=task.link%>'>
+                                        <span  onclick="copyFunction()" class="input-group-text">Copy</span>
+                                    </div>
+                                    <form action="/task/sharelinkcompletetask" method="post" enctype="multipart/form-data">
+                                        <div class="change_field">
+                                            <label>screen shot</label>
+                                                <input type="file" name="screenshot" required >
+                                        </div> 
+                                        <div class="about_btn  login_btn float_left">
+                                            <ul>
+                                                <li>
+                                                    <button type="submit">Activate</button>
+                                                </li>
+                                            </ul>
+                                            </div>
+                                    </form>
+                                <%}else{%>
+                                   <p>  watch this video and send the screenshot doing so </p>
+                                    <div>
+                                        <iframe width="950" height="315" src="<%=task.link%>" title="YouTube video player" frameborder="0"allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                    <form action="/task/sharelinkcompletetask" method="post" enctype="multipart/form-data">
+                                        <div class="change_field">
+                                            <label>screen shot</label>
+                                                <input type="file" name="screenshot" required>
+                                        </div>
+                                        <div class="about_btn  login_btn float_left">
+                                            <ul>
+                                                <li>
+                                                    <button type="submit">Submit</button>
+                                                </li>
+                                            </ul>
+                                            </div> 
+                                    </form>
+                                    <%}%>
+                                <%}else if(taskType=="pic"){%>
+                                    Long press on the pictture download it then share it to any social media group and send us the screen shot
+                                    <img height="400px" width="400px" style="object-fit: cover; border-radius: 20%;" src="<%=task.picture%>" alt="photo">
+                                    <form action="/task/sharepiccompletetask" method="post" enctype="multipart/form-data">
+                                        <div class="change_field">
+                                            <label>screen shot</label>
+                                                <input type="file" name="screenshot" required >
+                                        </div> 
+                                        <div class="about_btn  login_btn float_left">
+                                            <ul>
+                                                <li>
+                                                    <button type="submit">Activate</button>
+                                                </li>
+                                            </ul>
+                                            </div>
+                                    </form>
+                                    <%}else if(taskType=="survey"){%>
+                                        <form action="/task/surveycompletetask" method="post" enctype="multipart/form-data">
+                                            <div class="change_field">
+                                                <label><%=task.question1%></label>
+                                                    <input type="text" name="answer1" placeholder="answer" required>
+                                            </div> 
+                                      
+                                       
+                                            <div class="change_field">
+                                                <label><%=task.question2%></label>
+                                                <input type="text" name="answer2" placeholder="answer" required>
+                                            </div> 
+                                       
+                                        
+                                            <div class="change_field">
+                                                <label><%=task.question3%></label>
+                                                <input type="text" name="answer3" placeholder="answer" required>
+                                            </div> 
+                                      
+                                            <div class="change_field">
+                                                <label><%=task.question4%></label>
+                                                <input type="text" name="answer4" placeholder="answer" required>
+                                            </div> 
+                                        
+                                            <div class="change_field">
+                                                <label><%=task.question5%></label>
+                                                <input type="text" name="answer5" placeholder="answer" required>
+                                            </div>
+
+                                            <div class="about_btn  login_btn float_left">
+                                                <ul>
+                                                    <li>
+                                                        <button type="submit">Submit</button>
+                                                    </li>
+                                                </ul>
+                                                </div>
+                                        </form>
+                                    <%}%>
+                   
+                </div>
+            </div>
+            <!--  email wrapper end -->
+            <!--  footer  wrapper start -->
+            <%- include('includes/footer'); -%>
+         </div>
+       <!--  footer  wrapper end -->      
+    <!-- main box wrapper End-->
+
+    <script>
+        function copyFunction(){
+    var copyLink = document.getElementById("copyRefLink")
+    /*select the text field*/
+    copyLink.select();
+    copyLink.setSelectionRange(0,999999)/*for mobile*/
+    /*copy the text inside text field*/
+    document.execCommand('copy');
+    /* alert copied text*/
+    alert('Copied the the text: ' + copyLink.value)
+    }
+   </script>
+
+
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/modernizr.js"></script>
+	<script src="/js/dropify.min.js"></script>
+	<script src="/js/owl.carousel.js"></script>
+    <script src="/js/jquery.countTo.js"></script>
+	<script src="/js/plugin.js"></script>
+    <script src="/js/jquery.inview.min.js"></script>
+    <script src="/js/jquery.magnific-popup.js"></script>
+    <script src="/js/jquery.nice-select.min.js"></script>
+    <script src="/js/datatables.js"></script>
+    <script src="/js/jquery.menu-aim.js"></script>
+    <script src="/js/custom.js"></script>
+    <!--main js file end-->
+</body>
+
+
+<!-- Mirrored from webstrot.com/html/savehyip/light_version/email_notification.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Apr 2021 13:15:07 GMT -->
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<!-- 
+Template Name: Savehyip
+Version: 1.0.0
+Author: WebstrotSavehyip
+
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zxx">
+<!--[endif]-->
+
+
+<!-- Mirrored from webstrot.com/html/savehyip/light_version/my_account.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Apr 2021 13:15:07 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8" />
+    <title>Savehyip Dashboard HTML Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description" content="Savehyip" />
+    <meta name="keywords" content="Savehyip" />
+    <meta name="author" content="" />
+    <meta name="MobileOptimized" content="320" />
+    <!--Template style -->
+    <link rel="stylesheet" type="text/css" href="css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="css/flaticon2.css" />
+	<link rel="stylesheet" type="text/css" href="css/dropify.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="css/nice-select.css" />
+	<link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="css/owl.theme.default.css">
+	<link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="css/datatables.css" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+	 <!--favicon-->
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+<script src='../../../google_analytics_auto.js'></script></head>
+<!-- color picker start -->
+
+<body>
+    <%- include('includes/nav'); -%>
+        <!-- Main section Start -->
+        
+            <!--  my account wrapper end -->    
+            <!--  account wrapper start -->
+            <div class="account_wrapper float_left">
+
+                <div class="row">
+
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-12">
+                        <div class="sv_heading_wraper">
+
+                            <h3>my account</h3>
+
+                        </div>
+                    
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-xl-3 col-sm-6 col-12">
+                        <div class="investment_box_wrapper color_1 float_left">
+                            <a href="#">
+                                <div class="investment_icon_wrapper float_left">
+                                    <i class="far fa-money-bill-alt"></i>
+                                    <h1>Package</h1>
+                                </div>
+
+                                <div class="invest_details float_left">
+                                    <table class="invest_table">
+                                        <tbody>
+                                            <tr>
+                                                <td class="invest_td1">Active Package</td>
+                                                <td class="invest_td1"> :<%=user.package%> </td>
+                                            </tr>
+                                            
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-xl-3 col-sm-6 col-12">
+                        <div class="investment_box_wrapper color_2 float_left">
+                            <a href="#">
+                                <div class="investment_icon_wrapper float_left">
+                                    <i class="far fa-money-bill-alt"></i>
+                                    <h1>payouts</h1>
+                                </div>
+
+                                <div class="invest_details float_left">
+                                    <table class="invest_table">
+                                        <tbody>
+                                            
+                                            <tr>
+                                                <td class="invest_td1">pending payouts</td>
+                                                <td class="invest_td1">:<%=user.pendingWithdrowal%></td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                   
+                    <div class="col-md-4 col-lg-4 col-xl-3 col-sm-6 col-12">
+                        <div class="investment_box_wrapper color_4 float_left">
+                            <a href="#">
+                                <div class="investment_icon_wrapper float_left">
+                                    <i class="far fa-money-bill-alt"></i>
+                                    <h1>earnings</h1>
+                                </div>
+
+                                <div class="invest_details float_left">
+                                    <table class="invest_table">
+                                        <tbody>
+                                            <tr>
+                                                <td class="invest_td1">balance</td>
+                                                <td class="invest_td1"> : <%=user.balance%> </td>
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-xl-3 col-sm-6 col-12">
+                        <div class="investment_box_wrapper color_5 float_left">
+                            <a href="#">
+                                <div class="investment_icon_wrapper float_left">
+                                    <i class="far fa-money-bill-alt"></i>
+                                    <h1>referral</h1>
+                                </div>
+
+                                <div class="invest_details float_left">
+                                    <table class="invest_table">
+                                        <tbody>
+                                            <tr>
+                                                <td class="invest_td1">Downlines</td>
+                                                <td class="invest_td1"> : <%=user.downlineIds.length%>  </td>
+                                            </tr>
+                                           
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                  
+                </div>
+            </div>
+            <!--  account wrapper end -->
+            <!--  transactions wrapper start -->
+            <div class="last_transaction_wrapper float_left">
+
+                <div class="row">
+
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-12">
+                        <div class="sv_heading_wraper">
+
+                            <h3> transaction history</h3>
+
+                        </div>
+                    </div>
+                    <%if(docs.length !=0){%>
+                        <div class="crm_customer_table_main_wrapper float_left">
+                            <div class="crm_ct_search_wrapper">
+                                <div class="crm_ct_search_bottom_cont_Wrapper">
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="myTable table datatables cs-table crm_customer_table_inner_Wrapper">
+                                    <thead>
+                                        <tr>
+                                            <th class="width_table1">transaction ID</th>
+                                            <th class="width_table1">amount ($)</th>
+                                            <th class="width_table1">username</th>
+                                            <th class="width_table1">date</th>
+                                            <th class="width_table1">payment mode</th>
+                                            <th class="width_table1">status</th>
+                                           
+    
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <%docs.forEach(doc=>{%>
+                                            <tr class="background_white">
+    
+                                                <td>
+                                                    <div class="media cs-media">
+        
+                                                        <div class="media-body">
+                                                            <h5><%=doc.transactionCode%></h5>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="pretty p-svg p-curve"><%=doc.amount%></div>
+                                                </td>
+                                                <td>
+                                                    <div class="pretty p-svg p-curve"><%=doc.userName%></div>
+                                                </td>
+                                                <td>
+                                                    <div class="pretty p-svg p-curve"><%=doc.date%></div>
+                                                </td>
+                                                <td>
+                                                    <div class="pretty p-svg p-curve">M-Pesa</div>
+                                                </td>
+        
+                                                <td class="flag">
+                                                    <div class="pretty p-svg p-curve" <%if(doc.aproved){%>
+                                                        style="color:green;"
+                                                        <%}else{%>
+                                                            style="color:red;"
+                                                            <%}%>>
+                                                            <%if(doc.aproved){%>
+                                                               Aproved
+                                                                <%}else{%>
+                                                                    Pending
+                                                                    <%}%>
+                                                            
+                                                            </div>
+                                                </td>
+                                               
+                                            </tr>
+                                        <%})%>
+                                       
+    
+                                    </tbody>
+                                </table>
+    
+                            </div>
+                        </div>
+                        <%}else{%>
+                            <p>no withdrowal requests pending</p>
+                            <%}%>
+                    
+                </div>
+            </div>
+            <!--  transactions wrapper end -->
+            <!--  footer  wrapper start -->
+            <%- include('includes/footer'); -%>
+         </div>
+       <!--  footer  wrapper end -->      
+    <!-- main box wrapper End-->
+    <script>
+         function copyFunction(){
+     var copyLink = document.getElementById("copyRefLink")
+     /*select the text field*/
+     copyLink.select();
+     copyLink.setSelectionRange(0,999999)/*for mobile*/
+     /*copy the text inside text field*/
+     document.execCommand('copy');
+     /* alert copied text*/
+     alert('Copied the the text: ' + copyLink.value)
+     }
+    </script>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/modernizr.js"></script>
+	<script src="js/dropify.min.js"></script>
+	<script src="js/owl.carousel.js"></script>
+    <script src="js/jquery.countTo.js"></script>
+	<script src="js/plugin.js"></script>
+    <script src="js/jquery.inview.min.js"></script>
+    <script src="js/jquery.magnific-popup.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/datatables.js"></script>
+    <script src="js/jquery.menu-aim.js"></script>
+    <script src="js/custom.js"></script>
+    <!--main js file end-->
+</body>
+
+
+<!-- Mirrored from webstrot.com/html/savehyip/light_version/my_account.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Apr 2021 13:15:07 GMT -->
+</html>

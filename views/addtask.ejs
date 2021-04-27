@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<!-- 
+Template Name: Savehyip
+Version: 1.0.0
+Author: WebstrotSavehyip
+
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zxx">
+<!--[endif]-->
+
+
+<!-- Mirrored from webstrot.com/html/savehyip/light_version/transfer_fund.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Apr 2021 13:15:07 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8" />
+    <title>Savehyip Dashboard HTML Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description" content="Savehyip" />
+    <meta name="keywords" content="Savehyip" />
+    <meta name="author" content="" />
+    <meta name="MobileOptimized" content="320" />
+    <!--Template style -->
+    <link rel="stylesheet" type="text/css" href="css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="css/flaticon2.css" />
+	<link rel="stylesheet" type="text/css" href="css/dropify.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="css/nice-select.css" />
+	<link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="css/owl.theme.default.css">
+	<link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="css/datatables.css" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+	 <!--favicon-->
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+<script src='../../../google_analytics_auto.js'></script></head>
+<!-- color picker start -->
+
+<body>
+    <%- include('includes/nav'); -%>
+        <!-- Main section Start -->
+            <!--  my account wrapper end -->    
+            <!--  profile wrapper start -->
+            <div class="payment_transfer_Wrapper float_left">
+                <div class="row">
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-12">
+                        <div class="sv_heading_wraper heading_center">
+
+                            <h3>Add task</h3>
+
+                        </div>
+
+                    </div>
+                </div>              
+                <div class="row">
+					 <div class="col-md-12 col-xl-12 offset-xl-12 col-lg-12 offset-lg-12 col-sm-12 col-12">
+						<div class="change_password_wrapper float_left">
+                            <div>
+                                <h3>Live tasks</h3>
+                                <div>
+                                    <%activetasks .forEach(activetask=>{%>
+                                            <div class="col-sm-6">
+                                              <div class="card">
+                                                <div class="card-body">
+                                                  <h6 class="card-title">Task :
+                                                  </h6>
+                                                  <p class="card-text" style="color: green;"><%= activetask%></p>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <br>
+                                    <%})%>
+                                </div>
+                            </div>
+                            <form action="/addlinktask" method="post">
+							<div class="change_pass_field float_left">	
+							<div class="payment_gateway_wrapper payment_select_wrapper">
+							<label>Select link task :</label>
+                            <select>
+                                <option selected>choose task</option>
+                                <option value="share"name="task">Share link</option>
+                                <option value="view"name="task">veiw video</option>
+                                
+                            </select>
+                        </div>							
+								<div class="change_field">
+									<label>Youtube link :</label>
+                                        <input type="link" name="link" placeholder="link">
+								</div>                               
+                                 <div class="change_field">
+                                    <label> Base amount :</label>
+                                        <input type="number" name="baseamount" placeholder="amount for free package">
+                                </div>
+								<div class="about_btn  login_btn float_left">
+									<ul>
+										<li>
+											<button type="submit">Activate</button>
+										</li>
+									</ul>
+									</div>
+								</div>
+                            </form>
+                            <form action="/addinvitationtask" method="post">
+                                <div class="change_pass_field float_left">	
+                                <div class="payment_gateway_wrapper payment_select_wrapper">
+                                <label>Invitations :</label>
+                            </div>							
+                                    <div class="change_field">
+                                        <label>Number of invites</label>
+                                            <input type="number" name="inviteno" placeholder="number of people to invite">
+                                    </div>        
+                                    <div class="change_field">
+                                        <label> Base amount :</label>
+                                            <input type="number" name="baseamount" placeholder="amount for free package">
+                                    </div>                              
+                                    <div class="about_btn float_left">
+                                        <ul>
+                                            <li>
+                                                <button type="submit">Activate</button>
+                                            </li>
+                                        </ul>
+                                        </div>
+                                    </div>
+                                </form>
+                                <form action="/addpicturetask" method="post" enctype="multipart/form-data">
+                                    <div class="change_pass_field float_left">	
+                                    <div class="payment_gateway_wrapper payment_select_wrapper">
+                                    <label>Picture share :</label>
+                                    
+                                </div>							
+                                        <div class="change_field">
+                                            <label> picture to share :</label>
+                                                <input type="file" name="picshare">
+                                        </div>
+                                        <div class="change_field">
+                                            <label> Base amount :</label>
+                                                <input type="number" name="baseamount" placeholder="amount for free package">
+                                        </div>                                    
+                                        <div class="about_btn  login_btn float_left">
+                                            <ul>
+                                                <li>
+                                                    <button type="submit">Activate</button>
+                                                </li>
+                                            </ul>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <form action="/addblogtask" method="post">
+                                        <div class="change_pass_field float_left">	
+                                        <div class="payment_gateway_wrapper payment_select_wrapper">
+                                        <label>Blog Challange :</label>
+                                        
+                                    </div>							
+                                            <div class="change_field">
+                                                <label> Blog Topic :</label>
+                                                    <input type="text" name="blogtopic" placeholder="blog Topic">
+                                            </div>            
+                                            <div class="change_field">
+                                                <label> Number of words :</label>
+                                                    <input type="number" name="wordsno" placeholder="number of words  in the blog">
+                                            </div>            
+                                            <div class="change_field">
+                                                <label> Base amount :</label>
+                                                    <input type="number" name="baseamount" placeholder="amount for free package">
+                                            </div>                               
+                                            <div class="about_btn  login_btn float_left">
+                                                <ul>
+                                                    <li>
+                                                        <button type="submit">Activate</button>
+                                                    </li>
+                                                </ul>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <form action="/addsurvaytask" method="post">
+                                            <div class="change_pass_field float_left">	
+                                            <div class="payment_gateway_wrapper payment_select_wrapper">
+                                            <label>survey :</label>
+                                        </div>							
+                                                <div class="change_field">
+                                                    <label> Question 1 :</label>
+                                                        <input type="text" name="question1" placeholder=" Question 1 ">
+                                                </div> 
+                                                <div class="change_field">
+                                                    <label>Question 2 :</label>
+                                                        <input type="text" name="question2" placeholder=" Question 2 ">
+                                                </div> 
+                                                <div class="change_field">
+                                                    <label> Question 3 :</label>
+                                                        <input type="text" name="question3" placeholder=" Question 3 ">
+                                                </div>
+                                                <div class="change_field">
+                                                    <label>  Question 4  :</label>
+                                                        <input type="text" name="question4" placeholder=" Question 4 ">
+                                                </div>
+                                                <div class="change_field">
+                                                    <label>  Question 5 :</label>
+                                                        <input type="text" name="question5" placeholder=" Question 5 ">
+                                                </div>    
+                                                <div class="change_field">
+                                                    <label>  base amount:</label>
+                                                        <input type="number" name="baseamount" placeholder=" amount for free package ">
+                                                </div>                             
+                                                <div class="about_btn  login_btn float_left">
+                                                    <ul>
+                                                        <li>
+                                                           <button type="submit">Activate</button>
+                                                        </li>
+                                                    </ul>
+                                                    </div>
+                                                </div>
+                                            </form>
+							</div>
+						</div>
+					</div>
+				</div>
+            <!--  profile wrapper end -->
+            <!--  footer  wrapper start -->
+            <%- include('includes/footer'); -%>
+         </div>
+       <!--  footer  wrapper end -->      
+    <!-- main box wrapper End-->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/modernizr.js"></script>
+	<script src="js/dropify.min.js"></script>
+	<script src="js/owl.carousel.js"></script>
+    <script src="js/jquery.countTo.js"></script>
+	<script src="js/plugin.js"></script>
+    <script src="js/jquery.inview.min.js"></script>
+    <script src="js/jquery.magnific-popup.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/datatables.js"></script>
+    <script src="js/jquery.menu-aim.js"></script>
+    <script src="js/custom.js"></script>
+    <!--main js file end-->
+</body>
+
+
+<!-- Mirrored from webstrot.com/html/savehyip/light_version/transfer_fund.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Apr 2021 13:15:07 GMT -->
+</html>
