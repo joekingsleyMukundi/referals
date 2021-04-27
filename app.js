@@ -76,6 +76,10 @@ completeTaskApiController(app)
 completedTaskApiController(app)
 withdrowalApiController(app)
 confirmationListApiController(app)
+app.get('/logout', function(req, res){
+    req.logout();
+    res.redirect('/');
+  });
 //end of routes
 //start of listener
 const port =  process.env.PORT||3000
