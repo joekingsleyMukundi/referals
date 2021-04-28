@@ -11,21 +11,22 @@ const balanceUpdate = (app,req,res,found,task,bal,model,today)=>{
    }
     else{
         dashboardApiController(app)
-        User().updateOne({_id:req.user.id},{balance:bal},(err)=>{
-            if (err) {
-                console.log(err)
-            } else {
-                    model().updateOne({date:today},{$push:{userComplete:req.user.id}},(err)=>{
-                        if (err) {
-                            console.log(err)
-                        } else {
-                            earningMail(req.user.email,req.user.username,0)
-                            res.redirect("/dashboard")
-                        }
-                    })
+        console.log("yess")
+        // User().updateOne({_id:req.user.id},{balance:bal},(err)=>{
+        //     if (err) {
+        //         console.log(err)
+        //     } else {
+        //             model().updateOne({date:today},{$push:{userComplete:req.user.id}},(err)=>{
+        //                 if (err) {
+        //                     console.log(err)
+        //                 } else {
+        //                     earningMail(req.user.email,req.user.username,0)
+        //                     res.redirect("/dashboard")
+        //                 }
+        //             })
                 
-            }
-        })
+        //     }
+        // })
       
     }
 }
