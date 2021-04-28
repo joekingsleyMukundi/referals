@@ -22,6 +22,7 @@ const completeTaskApiController = require("./conrollers/apis_routes/completetask
 const completedTaskApiController = require("./conrollers/apis_routes/completedtask/completedTasks")
 const withdrowalApiController = require("./conrollers/apis_routes/withdrowal")
 const confirmationListApiController = require("./conrollers/apis_routes/confirmationlist")
+const downlinesApiController = require("./conrollers/apis_routes/downlines")
 const multer = require("multer");
 const app = express();
 const storage = multer.diskStorage({
@@ -76,6 +77,7 @@ completeTaskApiController(app)
 completedTaskApiController(app)
 withdrowalApiController(app)
 confirmationListApiController(app)
+downlinesApiController(app)
 app.get('/logout', function(req, res){
     req.logout();
     res.redirect('/');

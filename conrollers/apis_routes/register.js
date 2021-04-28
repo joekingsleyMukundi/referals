@@ -25,18 +25,24 @@ const registerApiController = (app,upload)=>{
                             if (!err) {
                                 if (user.length!=0) {
                                     if(req.body.uplineid == " "){
-                                        req.flash("message","the phone number exists use another number")
+                                        req.flash("message","the email exists use another email")
                                         res.redirect("/register")
                                     }else{
-                                        req.flash("message","the phone number exists use another number")
+                                        req.flash("message","the email exists use another email")
                                         res.redirect(`/register?id=${req.body.uplineid}&user=${req.body.uplineuser}`)
                                     }
                                 }else{
-                                    User().find({username:req.body.user},(err,user)=>{
+                                    User().find({username:req.body.username},(err,user)=>{
                                         if(!err){
                                             if(user.length !=0){
-                                                req.flash("message","the username exists use another number")
-                                                res.redirect(`/register?id=${req.body.uplineid}&user=${req.body.uplineuser}`)
+                                                if(req.body.uplineid == " "){
+                                                    req.flash("message","the username exists use another name")
+                                                    res.redirect("/register")
+                                                }else{
+                                                    req.flash("message","the username exists use another name")
+                                                    res.redirect(`/register?id=${req.body.uplineid}&user=${req.body.uplineuser}`)
+                                                }
+
                                             }else{
                                                 registerApiLogic(req,res)
                                             }

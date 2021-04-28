@@ -241,6 +241,11 @@ Author: WebstrotSavehyip
                             <%}%>
                     
                 </div>
+                <div class="input-group">
+                    <input type="text" id="copyRefLink" class="form-control"
+                        value='http://localhost:3000/register?id=<%=user.id%>&user=<%=user.username%>'>
+                    <span  onclick="copyFunction()" class="input-group-text">Copy</span>
+                </div>
             </div>
             <!--  transactions wrapper end -->
             <!--  footer  wrapper start -->
