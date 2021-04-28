@@ -17,7 +17,7 @@ const registerApiLogic = (req,res)=>{
         verified:false,
         regDate:regTime,
         balance:0,
-        package:'basic',
+        package:'Basic',
         pendingWithdrowal:0,
         uplineId:req.body.uplineid,
     },req.body.password,(err,user)=>{

@@ -18,7 +18,7 @@ const completeTaskApiController = (app)=>{
                         if(tasks.length!=0){
                             tasks.forEach(task=>{
                                 //payment
-                                res.render("completetask",{task:task,taskType:"blog",message:req.flash("message")})
+                                res.render("completetask",{user:req.user,task:task,taskType:"blog",message:req.flash("message")})
                             })
                         }else{
                             req.flash("message","please contact the admin on this it seems the task should not be indicated")
@@ -33,7 +33,7 @@ const completeTaskApiController = (app)=>{
                     }else{
                         if(tasks.length!=0){
                             tasks.forEach(task=>{
-                                res.render("completetask",{task:task,taskType:"invite",message:req.flash("message")})
+                                res.render("completetask",{user:req.user,task:task,taskType:"invite",message:req.flash("message")})
                             })
                         }else{
                             req.flash("message","please contact the admin on this it seems the task should not be indicated")
@@ -48,7 +48,8 @@ const completeTaskApiController = (app)=>{
                     }else{
                         if(tasks.length!=0){
                             tasks.forEach(task=>{
-                                res.render("completetask",{task:task,taskType:"link",message:req.flash("message")})
+                                
+                                res.render("completetask",{user:req.user,task:task,taskType:"link",message:req.flash("message")})
                             })
                         }else{
                             req.flash("message","please contact the admin on this it seems the task should not be indicated")
@@ -63,7 +64,7 @@ const completeTaskApiController = (app)=>{
                     }else{
                         if(tasks.length!=0){
                             tasks.forEach(task=>{
-                                res.render("completetask",{task:task,taskType:"pic",message:req.flash("message")})
+                                res.render("completetask",{user:req.user,task:task,taskType:"pic",message:req.flash("message")})
                             })
                         }else{
                             req.flash("message","please contact the admin on this it seems the task should not be indicated")
@@ -78,7 +79,7 @@ const completeTaskApiController = (app)=>{
                     }else{
                         if(tasks.length!=0){
                             tasks.forEach(task=>{
-                                res.render("completetask",{task:task,taskType:"survey",message:req.flash("message")})
+                                res.render("completetask",{user:req.user,task:task,taskType:"survey",message:req.flash("message")})
                             })
                         }else{
                             req.flash("message","please contact the admin on this it seems the task should not be indicated")
