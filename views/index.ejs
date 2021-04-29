@@ -69,8 +69,15 @@ Author: Webstrot
             <li><a href="#about"> about us </a></li>
             <li><a href="#packages"> Packages </a></li> 
             <li><a href="#"> contact us </a></li>
-            <li><a href="/login"> login </a></li>
+            <%if(status=="signedout"){%>
+                <li><a href="/login"> login </a></li>
             <li><a href="/register"> register </a></li>
+                <%}else{%>
+                    <li><a href="/dashboard">Dashboard</a></li>
+                    <li><a href="/logout"> logout </a></li>
+                 
+                    <%}%>
+            
         </ul>
         <!-- .cd-dropdown-content -->
     </nav>
@@ -120,10 +127,15 @@ Author: Webstrot
                 <p><i class="flaticon-phone-contact"></i> (+254) 706 373 252 </p>
                 <div class="header_btn">
                     <ul>
-                        <li>
-                            <a href="/register"> register </a> </li>
-                        <li>
-                            <a href="/login"> login </a> </li>
+                        <%if(status=="signedout"){%>
+                            <li><a href="/login"> login </a></li>
+                        <li><a href="/register"> register </a></li>
+                            <%}else{%>
+                                <li><a href="/dashboard">Dashboard</a></li>
+                                <li><a href="/logout"> logout </a></li>
+                             
+                                <%}%>
+                        
                     </ul>
 
 
@@ -172,12 +184,21 @@ For Future</h3>
 
                                         <div class="slider_btn float_left">
                                             <ul>
+                                                <%if(status=="signedout"){%>
                                                 <li data-animation="animated bounceInLeft">
                                                     <a href="/register">start now</a>
                                                 </li>
                                                 <li data-animation="animated bounceInLeft">
                                                     <a href="#packages">view plans</a>
                                                 </li>
+                                                <%}else{%>
+                                                    <li data-animation="animated bounceInLeft">
+                                                        <a href="#packages">Upgrade now</a>
+                                                    </li>
+                                                    <li data-animation="animated bounceInLeft">
+                                                        <a href="/dashboard"> <%=user.username%></a>
+                                                    </li>
+                                                    <%}%>
                                             </ul>
                                         </div>
                                         <div class="clear"></div>
@@ -206,12 +227,21 @@ For Future</h3>
 
                                         <div class="slider_btn float_left">
                                             <ul>
-                                                <li data-animation="animated bounceInLeft">
-                                                    <a href="/register">start now</a>
-                                                </li>
-                                                <li data-animation="animated bounceInLeft">
-                                                    <a href="#packages">view plans</a>
-                                                </li>
+                                                <%if(status=="signedout"){%>
+                                                    <li data-animation="animated bounceInLeft">
+                                                        <a href="/register">start now</a>
+                                                    </li>
+                                                    <li data-animation="animated bounceInLeft">
+                                                        <a href="#packages">view plans</a>
+                                                    </li>
+                                                    <%}else{%>
+                                                        <li data-animation="animated bounceInLeft">
+                                                            <a href="#packages">Upgrade now</a>
+                                                        </li>
+                                                        <li data-animation="animated bounceInLeft">
+                                                            <a href="/dashboard"> <%=user.username%></a>
+                                                        </li>
+                                                        <%}%>
                                             </ul>
                                         </div>
                                         <div class="clear"></div>
