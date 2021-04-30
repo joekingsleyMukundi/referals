@@ -1,9 +1,9 @@
 const earningOption = (email,fullname,earning)=>{
     let options = {
-        from: "meitneriumtrade@gmail.com",
+        from: '"Goldline" <goldline@coursecleared.com>',
         to: email,
         subject: "Earnings",
-        text: `Hello ${fullname} you have earned ${earning} from GOLD LINE BREEZE TECHNOLOGY.`,
+        text: `<p>Hello ${fullname} you have earned ${earning} from  GOLD LINE BREEZE TECHNOLOGY.</p>`,
     }
     return options
 }

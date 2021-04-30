@@ -1,9 +1,9 @@
 const registerOptions = (email,fullname,otp)=>{
     let options = {
-        from: "meitneriumtrade@gmail.com",
+        from:'"Goldline" <goldline@coursecleared.com>',
         to: email,
         subject: "Successfull registration",
-        text: `Welcome on board. ${fullname} your one time pin is ${otp}.`,
+        text: `<p>Welcome on board. ${fullname} your one time pin is ${otp}.</p>`,
     }
     return options
 }

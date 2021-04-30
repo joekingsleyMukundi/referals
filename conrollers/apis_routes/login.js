@@ -9,19 +9,31 @@ const loginApiController = (app)=>{
         .post((req,res)=>{
             dashboardApiController(app)
             const User = UserModel()
-            const user = User({
-                username:req.body.username,
-                password:req.body.passsword,
-            })
-            req.login(user,(err)=>{
-                if(err){
+            User.find({username:req.body.username},(err,user)=>{
+                if (err) {
                     console.log(err)
-                }else{
-                    passport.authenticate("local")(req,res,()=>{
-                       res.redirect("dashboard")
+                } else {
+                   if (user.length != 0 ) {
+                    const user = User({
+                        username:req.body.username,
+                        password:req.body.passsword,
                     })
+                    req.login(user,(err)=>{
+                        if(err){
+                            console.log(err)
+                        }else{
+                            passport.authenticate("local")(req,res,()=>{
+                               res.redirect("dashboard")
+                            })
+                        }
+                    })
+                   } else {
+                       req.flash("message","the usernamse you have entered does not exist")
+                       res.redirect("/login")
+                   } 
                 }
             })
+           
         })
 }
 module.exports = loginApiController
