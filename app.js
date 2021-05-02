@@ -25,6 +25,7 @@ const confirmationListApiController = require("./conrollers/apis_routes/confirma
 const downlinesApiController = require("./conrollers/apis_routes/downlines")
 const multer = require("multer");
 const app = express();
+const http = require('http').createServer(app)
 const storage = multer.diskStorage({
     destination:function(req,file,cb){
         cb(null, "./uploads")
@@ -58,6 +59,22 @@ passport.serializeUser(function (user, done) {
     });
 });
 //end of passport
+//start of force https
+app.enable('trust proxy');
+
+// Add a handler to inspect the req.secure flag (see 
+// http://expressjs.com/api#req.secure). This allows us 
+// to know whether the request was via http or https.
+app.use (function (req, res, next) {
+        if (req.secure) {
+                // request was via https, so do no special handling
+                next();
+        } else {
+                // request was via http, so redirect to https
+                res.redirect('https://' + req.headers.host + req.url);
+        }
+});
+//end of force https
 app.use("/uploads",express.static(__dirname + "/uploads"))
 app.use("/tasks/uploads",express.static(__dirname + "/uploads"))
 //start of routes
@@ -85,6 +102,6 @@ app.get('/logout', function(req, res){
 //end of routes
 //start of listener
 const port =  process.env.PORT||3000
-app.listen(port,()=>{
+http.listen(port,()=>{
     console.log(`we are live at port ${port}`)
 })
