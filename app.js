@@ -25,6 +25,8 @@ const confirmationListApiController = require("./conrollers/apis_routes/confirma
 const downlinesApiController = require("./conrollers/apis_routes/downlines")
 const plansApiController = require("./conrollers/apis_routes/deposit")
 const depositListApiController = require("./conrollers/apis_routes/confirmdepo")
+const downgradeFtn = require("./functions/packagedowngrade")
+const cron = require('node-cron');
 const multer = require("multer");
 const app = express();
 const http = require('http').createServer(app)
@@ -79,6 +81,10 @@ app.use (function (req, res, next) {
 //end of force https
 app.use("/uploads",express.static("/uploads"))
 app.use("/tasks/uploads",express.static("/uploads"))
+//cronjob
+cron.schedule('0 0 0 * * *',()=>{
+    downgradeFtn()
+})
 //start of routes
 homeApiController(app)
 registerApiController(app,upload)

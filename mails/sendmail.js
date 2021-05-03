@@ -5,6 +5,7 @@ const approvedOptions  = require("./options/approvedOptions")
 const depositOptions = require("./options/depositoptions")
 const pacakgeAprovalOption = require("./options/packageAproval")
 const referalBonusOption = require("./options/referalBonusOption")
+const downgradeOptions = require("./options/downgradeOption")
 const transporter = require("./transporter")
 const registerMail = (email, username, otp) => {
     transporter.sendMail(
@@ -95,4 +96,17 @@ const registerMail = (email, username, otp) => {
       }
     );
   };
-  module.exports = {registerMail,earningMail, withdrowalMail, approvedMail, depositMail,packageAprovalMail,referalBonusMail}
+
+  const downgradeMail = (fullname,email) => {
+    transporter.sendMail(
+      downgradeOptions(fullname,email),
+      (err, data) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(`Success ${data}`);
+        }
+      }
+    );
+  };
+  module.exports = {registerMail,earningMail, withdrowalMail, approvedMail, depositMail,packageAprovalMail,referalBonusMail,downgradeMail}
