@@ -148,8 +148,13 @@ Author: WebstrotSavehyip
                                     </form>
                                     <%}%>
                                 <%}else if(taskType=="pic"){%>
-                                    Long press on the pictture download it then share it to any social media group and send us the screen shot
-                                    <img height="400px" width="400px" style="object-fit: cover; border-radius: 20%;" src="<%=task.picture%>" alt="photo">
+                                    Please copy the link provided and go to that page the picture you find please make sure you like and also share the link.
+                                    once you are done please  send  us a screenshot of you sharing on your social medioa platforms
+                                    <div class="input-group">
+                                        <input type="text" id="copyRefLink" class="form-control"
+                                            value='<%=task.picture%>'>
+                                        <span  onclick="copyFunction()" class="input-group-text">Copy</span>
+                                    </div>
                                     <form action="/task/sharepiccompletetask" method="post">
                                         <div class="change_field">
                                             <label>screen shot</label>

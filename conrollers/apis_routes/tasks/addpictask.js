@@ -7,7 +7,7 @@ const addpicApi = (app,upload)=>{
             adminTaskApiController(app)
             const docs = {
                 status:"active",
-                picture:req.file.path,
+                picture:req.body.link,
                 date:date(),
                 baseAmount:req.body.baseamount,
             }

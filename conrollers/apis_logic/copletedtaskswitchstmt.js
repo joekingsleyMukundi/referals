@@ -3,7 +3,7 @@ const balanceUpdate = require("./switchlogic")
 const balanceIncrement = (app,user,req,res,basePrice,model,found,task,today)=>{
     switch (user.package) {
         case "Basic":
-            balanceUpdate(app,req,res,found,task,0,model,today)
+            balanceUpdate(app,req,res,found,task, 0.25,model,today)
             break;
         case "Osmium":
             balanceUpdate(app,req,res,found,task,basePrice,model,today)
@@ -13,28 +13,28 @@ const balanceIncrement = (app,user,req,res,basePrice,model,found,task,today)=>{
             balanceUpdate(app,req,res,found,task,newBalance,model,today)
             break;
         case "Rhodium":
-            newBalance = basePrice*10
-            balanceUpdate(app,req,res,found,task,newBalance,model,today)
+            let newBalanceR = basePrice*10
+            balanceUpdate(app,req,res,found,task,newBalanceR,model,today)
             break;
         case "Ruthenium":
-            newBalance = basePrice*30
-            balanceUpdate(app,req,res,found,task,newBalance,model,today)
+            let newBalanceRu = basePrice*30
+            balanceUpdate(app,req,res,found,task,newBalanceRu,model,today)
             break;
         case "Palladium":
-            newBalance = basePrice*80
-            balanceUpdate(app,req,res,found,task,newBalance,model,today)
+            let newBalanceP = basePrice*80
+            balanceUpdate(app,req,res,found,task,newBalanceP,model,today)
             break;
         case "Platinum":
-            newBalance = basePrice*120
-            balanceUpdate(app,req,res,found,task,newBalance,model,today)
+            let newBalancePl = basePrice*120
+            balanceUpdate(app,req,res,found,task,newBalancePl,model,today)
             break;
         case "Silver":
-            newBalance = basePrice*160
-            balanceUpdate(app,req,res,found,task,newBalance,model,today)
+            let newBalanceS = basePrice*160
+            balanceUpdate(app,req,res,found,task,newBalanceS,model,today)
             break;
         case "Gold":
-            newBalance = basePrice*300
-            balanceUpdate(app,req,res,found,task,newBalance,model,today)
+            let newBalanceG = basePrice*300
+            balanceUpdate(app,req,res,found,task,newBalanceG,model,today)
             break;
     }
 }

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<!-- 
+Template Name: Savehyip
+Version: 1.0.0
+Author: WebstrotSavehyip
+
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zxx">
+<!--[endif]-->
+
+
+<!-- Mirrored from webstrot.com/html/savehyip/light_version/make_deposit.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Apr 2021 13:15:07 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8" />
+    <title>GoldLineBreeze</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description" content="Savehyip" />
+    <meta name="keywords" content="Savehyip" />
+    <meta name="author" content="" />
+    <meta name="MobileOptimized" content="320" />
+    <!--Template style -->
+    <link rel="stylesheet" type="text/css" href="/css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="/css/flaticon2.css" />
+	<link rel="stylesheet" type="text/css" href="/css/dropify.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="/css/nice-select.css" />
+	<link rel="stylesheet" type="text/css" href="/css/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/css/owl.theme.default.css">
+	<link rel="stylesheet" type="text/css" href="/css/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="/css/datatables.css" />
+    <link rel="stylesheet" type="text/css" href="/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/responsive.css" />
+	 <!--favicon-->
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+<script src='../../../google_analytics_auto.js'></script></head>
+<!-- color picker start -->
+
+<body>
+    <%- include('includes/nav'); -%>
+            <!--  my account wrapper end -->    
+     <!--  profile wrapper start -->
+            <div class="plan_investment_wrapper float_left">
+                <div class="row">
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-12">
+                        <div class="sv_heading_wraper">
+                            <h3>plan details</h3>
+                            <%if(message.length>0){%>
+                                <div class="alert alert-success">
+                                    <%= message %>
+                                </div>
+                                 <%}%>
+                        </div>
+
+                    </div>
+                    
+                        <div class="col-xl-6 col-md-6 col-lg-6 col-sm-6 col-12">
+                            <div class="investment_box_wrapper sv_pricing_border float_left">
+                                <div class="investment_icon_circle">
+                                    <i class="flaticon-movie-tickets"></i>
+                                </div>
+                                <div class="investment_border_wrapper"></div>
+                                <div class="investment_content_wrapper">
+                                    <% switch (package){
+                                        case "Ostium":%>
+                                        <h1><a href="#">Ostium Plan</a></h1>
+                                        <p>Up to 25KSH Daily 
+                                            <br> deposit: 500KSH               
+                                            <br> Period:60Days
+                                            <br> Compound Available:Daily</p>
+                                            <br>
+                                        <%break
+                                        case "Irridium":%>
+                                        <h1><a href="#">Irridium plan</a></h1>
+                                        <p>Up to 75KSH Daily
+                                            <br> deposit: 1500KSH               
+                                            <br> Period:60Days
+                                            <br> Compound Available:Daily</p>
+                                            <br>
+                                        <%break
+                                        case "Rhodium":%>
+                                        <h1><a href="#">Rhodium plan</a></h1>
+                                        <p>Up to 250KSH Daily
+                                            <br> deposit: 5000KSH               
+                                            <br> Period:60Days
+                                            <br> Compound Available:Daily</p>
+                                            <br>
+                                        
+                                        <%break
+                                        case "Ruthenium":%>
+                                        <h1><a href="#">Ruthenium plan</a></h1>
+                                        <p>Up to 750KSH Daily
+                                            <br> deposit: 15000KSH               
+                                            <br> Period:60Days
+                                            <br> Compound Available:Daily</p>
+                                            <br>
+                                        <%break
+                                        case "Palladium":%>
+                                        <h1><a href="#">Palladium plan</a></h1>
+                                        <p>Up to 2000KSH Daily
+                                            <br> deposit: 40000KSH               
+                                            <br> Period:60Days
+                                            <br> Compound Available:Daily</p>
+                                            <br>
+                                        <%break
+                                        case "Platinum":%>
+                                        <h1><a href="#">Platinum plan</a></h1>
+                                        <p>Up to 3000KSH Daily
+                                            <br> deposit: 60000KSH               
+                                            <br> Period:60Days
+                                            <br> Compound Available:Daily</p>
+                                            <br>
+                                        <%break
+                                        case "Silver":%>
+                                        <h1><a href="#">Silver plan</a></h1>
+                                        <p>Up to 4000KSH Daily
+                                            <br> deposit: 80000KSH               
+                                            <br> Period:60Days
+                                            <br> Compound Available:Daily</p>
+                                            <br>
+                                        <%break
+                                        case "Gold":%>
+                                        <h1><a href="#">Gold plan</a></h1>
+                                        <p>Up to 7500 daily
+                                            <br> deposit: 100000KSH               
+                                            <br> Period:60Days
+                                            <br> Compound Available:Daily</p>
+                                            <br>
+                                        <%break
+                                    } %>
+                                </div>
+
+                               
+                            </div>
+                        </div>
+
+                   
+                   
+                </div>
+
+            </div>
+            <!--  profile wrapper end -->
+            <!--  payment mode wrapper start -->
+            <div class="payment_mode_wrapper float_left">
+                <div class="row">
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-12">
+                        <div class="sv_heading_wraper">
+
+                            <h3>How to subscribe to the plan</h3>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-12">
+                        <div class="payment_radio_btn_wrapper float_left">
+                           
+                            <form action="/upgrade_to/<%=package%>" method="post">
+                                <p> 
+                                    <% switch (package){
+                                        case "Ostium":%>
+                                        <span style="font-weight: bold;">Step 1:</span> choose a plan that satisfies you <br>
+                                        <span style="font-weight: bold;">Step 2:</span> You will be brougt to this page <br>
+                                        <span style="font-weight: bold;">Step 3:</span> Your selected plan is Ostium <br>
+                                        <span style="font-weight: bold;">Step 4:</span> Go To M_Pesa: <br>
+                                        <span style="font-weight: bold;">Step 5:</span> Select Lipa na M_Pesa: <br>
+                                        <span style="font-weight: bold;">Step 6:</span> Select Buy Goods and Services: <br>
+                                        <span style="font-weight: bold;">Step 7:</span> Till number is <span style="font-weight: bold;">5579735</span> <br>
+                                        <span style="font-weight: bold;">Step 8:</span> The amount for this package is : <span style="font-weight: bold;">500</span> <br>
+                                        <span style="font-weight: bold;">Step 9:</span> Enter your pin: <br>
+                                        <span style="font-weight: bold;">Step 10:</span> Once you recive the confirmation message  send us the  M_Pesa code<br>
+                                        <%break
+                                        case "Irridium":%>
+                                        <span style="font-weight: bold;">Step 1:</span> choose a plan that satisfies you <br>
+                                        <span style="font-weight: bold;">Step 2:</span> You will be brougt to this page <br>
+                                        <span style="font-weight: bold;">Step 3:</span> Your selected plan is Irridium <br>
+                                        <span style="font-weight: bold;">Step 4:</span> Go To M_Pesa: <br>
+                                        <span style="font-weight: bold;">Step 5:</span> Select Lipa na M_Pesa: <br>
+                                        <span style="font-weight: bold;">Step 6:</span> Select Buy Goods and Services: <br>
+                                        <span style="font-weight: bold;">Step 7:</span> Till number is <span style="font-weight: bold;">5579735</span> <br>
+                                        <span style="font-weight: bold;">Step 8:</span> The amount for this package is : <span style="font-weight: bold;">1500</span> <br>
+                                        <span style="font-weight: bold;">Step 9:</span> Enter your pin: <br>
+                                        <span style="font-weight: bold;">Step 10:</span> Once you recive the confirmation message  send us the  M_Pesa code<br>
+                                        <%break
+                                        case "Rhodium":%>
+                                        <span style="font-weight: bold;">Step 1:</span> choose a plan that satisfies you <br>
+                                        <span style="font-weight: bold;">Step 2:</span> You will be brougt to this page <br>
+                                        <span style="font-weight: bold;">Step 3:</span> Your selected plan is Rhodium <br>
+                                        <span style="font-weight: bold;">Step 4:</span> Go To M_Pesa: <br>
+                                        <span style="font-weight: bold;">Step 5:</span> Select Lipa na M_Pesa: <br>
+                                        <span style="font-weight: bold;">Step 6:</span> Select Buy Goods and Services: <br>
+                                        <span style="font-weight: bold;">Step 7:</span> Till number is <span style="font-weight: bold;">5579735</span> <br>
+                                        <span style="font-weight: bold;">Step 8:</span> The amount for this package is : <span style="font-weight: bold;">5000</span> <br>
+                                        <span style="font-weight: bold;">Step 9:</span> Enter your pin: <br>
+                                        <span style="font-weight: bold;">Step 10:</span> Once you recive the confirmation message  send us the  M_Pesa code<br>
+                                        <%break
+                                        case "Ruthenium":%>
+                                        <span style="font-weight: bold;">Step 1:</span> choose a plan that satisfies you <br>
+                                        <span style="font-weight: bold;">Step 2:</span> You will be brougt to this page <br>
+                                        <span style="font-weight: bold;">Step 3:</span> Your selected plan is Ruthenium <br>
+                                        <span style="font-weight: bold;">Step 4:</span> Go To M_Pesa: <br>
+                                        <span style="font-weight: bold;">Step 5:</span> Select Lipa na M_Pesa: <br>
+                                        <span style="font-weight: bold;">Step 6:</span> Select Buy Goods and Services: <br>
+                                        <span style="font-weight: bold;">Step 7:</span> Till number is <span style="font-weight: bold;">5579735</span> <br>
+                                        <span style="font-weight: bold;">Step 8:</span> The amount for this package is : <span style="font-weight: bold;">15000</span> <br>
+                                        <span style="font-weight: bold;">Step 9:</span> Enter your pin: <br>
+                                        <span style="font-weight: bold;">Step 10:</span> Once you recive the confirmation message  send us the  M_Pesa code<br>
+                                        <%break
+                                        case "Palladium":%>
+                                        <span style="font-weight: bold;">Step 1:</span> choose a plan that satisfies you <br>
+                                        <span style="font-weight: bold;">Step 2:</span> You will be brougt to this page <br>
+                                        <span style="font-weight: bold;">Step 3:</span> Your selected plan is Palladium <br>
+                                        <span style="font-weight: bold;">Step 4:</span> Go To M_Pesa: <br>
+                                        <span style="font-weight: bold;">Step 5:</span> Select Lipa na M_Pesa: <br>
+                                        <span style="font-weight: bold;">Step 6:</span> Select Buy Goods and Services: <br>
+                                        <span style="font-weight: bold;">Step 7:</span> Till number is <span style="font-weight: bold;">5579735</span> <br>
+                                        <span style="font-weight: bold;">Step 8:</span> The amount for this package is : <span style="font-weight: bold;">40000</span> <br>
+                                        <span style="font-weight: bold;">Step 9:</span> Enter your pin: <br>
+                                        <span style="font-weight: bold;">Step 10:</span> Once you recive the confirmation message  send us the  M_Pesa code<br>
+                                        <%break
+                                        case "Platinum":%>
+                                        <span style="font-weight: bold;">Step 1:</span> choose a plan that satisfies you <br>
+                                        <span style="font-weight: bold;">Step 2:</span> You will be brougt to this page <br>
+                                        <span style="font-weight: bold;">Step 3:</span> Your selected plan is Platinum <br>
+                                        <span style="font-weight: bold;">Step 4:</span> Go To M_Pesa: <br>
+                                        <span style="font-weight: bold;">Step 5:</span> Select Lipa na M_Pesa: <br>
+                                        <span style="font-weight: bold;">Step 6:</span> Select Buy Goods and Services: <br>
+                                        <span style="font-weight: bold;">Step 7:</span> Till number is <span style="font-weight: bold;">5579735</span> <br>
+                                        <span style="font-weight: bold;">Step 8:</span> The amount for this package is : <span style="font-weight: bold;">60000</span> <br>
+                                        <span style="font-weight: bold;">Step 9:</span> Enter your pin: <br>
+                                        <span style="font-weight: bold;">Step 10:</span> Once you recive the confirmation message  send us the  M_Pesa code<br>
+                                        <%break
+                                        case "Silver":%>
+                                        <span style="font-weight: bold;">Step 1:</span> choose a plan that satisfies you <br>
+                                        <span style="font-weight: bold;">Step 2:</span> You will be brougt to this page <br>
+                                        <span style="font-weight: bold;">Step 3:</span> Your selected plan is Silver <br>
+                                        <span style="font-weight: bold;">Step 4:</span> Go To M_Pesa: <br>
+                                        <span style="font-weight: bold;">Step 5:</span> Select Lipa na M_Pesa: <br>
+                                        <span style="font-weight: bold;">Step 6:</span> Select Buy Goods and Services: <br>
+                                        <span style="font-weight: bold;">Step 7:</span> Till number is <span style="font-weight: bold;">5579735</span> <br>
+                                        <span style="font-weight: bold;">Step 8:</span> The amount for this package is : <span style="font-weight: bold;">80000</span> <br>
+                                        <span style="font-weight: bold;">Step 9:</span> Enter your pin: <br>
+                                        <span style="font-weight: bold;">Step 10:</span> Once you recive the confirmation message  send us the  M_Pesa code<br>
+                                        <%break
+                                        case "Gold":%>
+                                        <span style="font-weight: bold;">Step 1:</span> choose a plan that satisfies you <br>
+                                        <span style="font-weight: bold;">Step 2:</span> You will be brougt to this page <br>
+                                        <span style="font-weight: bold;">Step 3:</span> Your selected plan is Gold <br>
+                                        <span style="font-weight: bold;">Step 4:</span> Go To M_Pesa: <br>
+                                        <span style="font-weight: bold;">Step 5:</span> Select Lipa na M_Pesa: <br>
+                                        <span style="font-weight: bold;">Step 6:</span> Select Buy Goods and Services: <br>
+                                        <span style="font-weight: bold;">Step 7:</span> Till number is <span style="font-weight: bold;">5579735</span> <br>
+                                        <span style="font-weight: bold;">Step 8:</span> The amount for this package is : <span style="font-weight: bold;">100000</span> <br>
+                                        <span style="font-weight: bold;">Step 9:</span> Enter your pin: <br>
+                                        <span style="font-weight: bold;">Step 10:</span> Once you recive the confirmation message  send us the  M_Pesa code<br>
+                                        <%break
+                                    } %>
+                                    
+                                </p>
+                                <div class="change_field">
+									<label>Amount Sent :</label>
+									<input type="text" name="amount" placeholder="Amount sent">
+                                 </div>
+                                <div class="change_field">
+									<label>M_Pesa code :</label>
+									<input type="text" name="code" placeholder="M_Pesa code">
+                                 </div>
+                                <div class="about_btn float_left">
+
+                                    <ul>
+                                        <li>
+                                           <button type="submit">Submit</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--  payment mode wrapper end -->
+            <!--  footer  wrapper start -->
+            <div class="copy_footer_wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="crm_left_footer_cont">
+                                <p>2019 Copyright © <a href="#"> savehyip </a> . All Rights Reserved.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+         </div>
+       <!--  footer  wrapper end -->      
+    <!-- main box wrapper End-->
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/modernizr.js"></script>
+	<script src="/js/dropify.min.js"></script>
+	<script src="/js/owl.carousel.js"></script>
+    <script src="/js/jquery.countTo.js"></script>
+	<script src="/js/plugin.js"></script>
+    <script src="/js/jquery.inview.min.js"></script>
+    <script src="/js/jquery.magnific-popup.js"></script>
+    <script src="/js/jquery.nice-select.min.js"></script>
+    <script src="/js/datatables.js"></script>
+    <script src="/js/jquery.menu-aim.js"></script>
+    <script src="/js/custom.js"></script>
+    <!--main js file end-->
+</body>
+
+
+<!-- Mirrored from webstrot.com/html/savehyip/light_version/make_deposit.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Apr 2021 13:15:07 GMT -->
+</html>

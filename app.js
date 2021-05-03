@@ -23,6 +23,8 @@ const completedTaskApiController = require("./conrollers/apis_routes/completedta
 const withdrowalApiController = require("./conrollers/apis_routes/withdrowal")
 const confirmationListApiController = require("./conrollers/apis_routes/confirmationlist")
 const downlinesApiController = require("./conrollers/apis_routes/downlines")
+const plansApiController = require("./conrollers/apis_routes/deposit")
+const depositListApiController = require("./conrollers/apis_routes/confirmdepo")
 const multer = require("multer");
 const app = express();
 const http = require('http').createServer(app)
@@ -59,7 +61,22 @@ passport.serializeUser(function (user, done) {
     });
 });
 //end of passport
+//start of force https
+app.enable('trust proxy');
 
+// Add a handler to inspect the req.secure flag (see 
+// http://expressjs.com/api#req.secure). This allows us 
+// to know whether the request was via http or https.
+app.use (function (req, res, next) {
+        if (req.secure) {
+                // request was via https, so do no special handling
+                next();
+        } else {
+                // request was via http, so redirect to https
+                res.redirect('https://' + req.headers.host + req.url);
+        }
+});
+//end of force https
 app.use("/uploads",express.static("/uploads"))
 app.use("/tasks/uploads",express.static("/uploads"))
 //start of routes
@@ -80,6 +97,8 @@ completedTaskApiController(app)
 withdrowalApiController(app)
 confirmationListApiController(app)
 downlinesApiController(app)
+plansApiController(app)
+depositListApiController(app)
 app.get('/logout', function(req, res){
     req.logout();
     res.redirect('/');

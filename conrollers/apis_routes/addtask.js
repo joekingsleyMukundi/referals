@@ -1,8 +1,15 @@
 const taskApisLogic=require("../apis_logic/tasks")
+const homeApiController = require("./home")
 const adminTaskApiController = (app)=>{
     app.route("/addtask")
         .get((req,res)=>{
-            taskApisLogic(req,res,"addtask")
+            homeApiController(app)
+            if (req.isAuthenticated()) {
+                taskApisLogic(req,res,"addtask")
+            } else {
+                res.redirect("/")
+            }
+            
             
         })
 }

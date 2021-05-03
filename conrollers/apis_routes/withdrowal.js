@@ -28,7 +28,7 @@ const withdrowalApiController = (app)=>{
             if(req.isAuthenticated()){
                 if(req.body.amount<=req.user.balance){
                     var today = new Date();
-                if(today.getDay() == 1 || today.getDay() == 2){
+                if(today.getDay() == 5){
                     const todayDate = date()
                     const transIdorg = randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
                     const transId = transIdorg.slice(0,9)
@@ -61,6 +61,7 @@ const withdrowalApiController = (app)=>{
 
                     })
                 }else{
+                    req.flash("message","Withdrawals are  only done on Fridays ")
                     res.redirect("/withdraw")
                 };
                 }else{

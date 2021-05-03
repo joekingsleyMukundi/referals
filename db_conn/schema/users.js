@@ -19,5 +19,6 @@ const userSchema = new mongoose.Schema({
     balance:Number, 
     pendingWithdrowal:Number,
     uplineId:String,
+    packageExp:String,
 })
 module.exports=userSchema
