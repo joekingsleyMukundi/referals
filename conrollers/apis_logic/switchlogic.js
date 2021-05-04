@@ -11,7 +11,8 @@ const balanceUpdate = (app,req,res,found,task,bal,model,today)=>{
         res.redirect(`/tasks/${task}`)
    }
     else{
-        User().updateOne({_id:req.user.id},{balance:bal},(err)=>{
+        const newBal = req.user.balance + bal
+        User().updateOne({_id:req.user.id},{balance:newBal},(err)=>{
             if (err) {
                 console.log(err)
             } else {

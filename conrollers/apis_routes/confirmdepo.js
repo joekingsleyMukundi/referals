@@ -51,22 +51,22 @@
                                             if (user.uplineId ==="") {
                                                 res.redirect("/depositelist")
                                             }else{
-                                                User().updateOne({_id:user.uplineId},{balance:newBal},(err)=>{
+                                                User().findById({_id:user.uplineId},(err,upline)=>{
                                                     if (err) {
                                                         console.log(err)
                                                     } else {
-                                                        User().findById({_id:user.uplineId},(err,upline)=>{
+                                                        const newBalance = upline.balance + newBal
+                                                        User().updateOne({_id:user.uplineId},{balance:newBalance},(err)=>{
                                                             if (err) {
                                                                 console.log(err)
                                                             } else {
                                                                 referalBonusMail(upline.email,upline.username,item.package,newBal,user.username)
                                                                 res.redirect("/depositelist")
                                                             }
-                                                           
-                                                        })
-                                                       
+                                                        }) 
                                                     }
                                                 })
+                                                
                                                
                                             }
                                             
