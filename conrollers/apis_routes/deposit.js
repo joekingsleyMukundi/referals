@@ -36,7 +36,7 @@ const plansApiController = (app)=>{
                         console.log(err)
                     } else {
                         depositMail(req.user.fullname,req.user.phone,req.user.amount,MCode,package)
-                        req.flash("message","Your request has ben sent awaiting confirmation  and upgrade go bac to the dashboard we will send you an email of cinfirmation");
+                        req.flash("message","Your request has been sent awaiting confirmation  and upgrade go back to the dashboard we will send you an email of confirmation");
                         res.redirect(`/upgrade_plan/${package}`)
                     }
                 })
