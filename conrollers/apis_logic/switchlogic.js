@@ -7,7 +7,7 @@ const balanceUpdate = (app,req,res,found,task,bal,model,today)=>{
     dashboardApiController(app)
     completeTaskApiController(app)
     if(found.userComplete.includes(req.user.id)){
-        req.flash("message","you already completed this")
+        req.flash("message","This task has aready been completed,Please come back tomorrow.You can also join our advanced packages or invite friends and makesure  they join any package so that you can earn incentives")
         res.redirect(`/tasks/${task}`)
    }
     else{

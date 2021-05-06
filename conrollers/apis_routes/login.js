@@ -28,7 +28,7 @@ const loginApiController = (app)=>{
                         }
                     })
                    } else {
-                       req.flash("message","the usernamse you have entered does not exist")
+                       req.flash("message","the username you have entered does not exist")
                        res.redirect("/login")
                    } 
                 }

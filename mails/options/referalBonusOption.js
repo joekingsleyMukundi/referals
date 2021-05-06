@@ -3,7 +3,9 @@ const referalBonusOption = (email,fullname,package,amount,downline)=>{
         from: '"GoldlineBreeze" <info@goldlinebreeze.com>',
         to: email,
         subject: "Referal bonus",
-        html: `<b>Hello ${fullname} you have recieved ${amount} from ${downline} who has enrolled for ${package} package. </b>`,
+        html:  `<p><b>Congratulations ${fullname}</b><br> You have recieved ${amount},today  from  ${downline} who has subscribed for ${package} .The details are as follows <br>
+        Downline :  ${downline}.<br> Amount Earned : ${amount}.<br> Package : ${package}.<br> Login to your account  and confirm this transaction: <br>
+        https://www.goldlinebreeze.com/login</p>`,
     }
     return options
 }

@@ -148,11 +148,7 @@ Author: Webstrot
     </div>
     <!-- inner header wrapper end -->
     <!-- login wrapper start -->
-    <%if(message.length>0){%>
-        <div class="alert alert-success">
-            <%= message %>
-        </div>
-         <%}%>
+  
     <div class="login_wrapper fixed_portion float_left">
         <div class="container">
             <div class="row">
@@ -166,7 +162,11 @@ Author: Webstrot
                             <div class="sv_heading_wraper heading_wrapper_dark dark_heading hwd">
 
                                 <h3> login with username to enter</h3>
-
+                                <%if(message.length>0){%>
+                                    <div class="alert alert-success">
+                                        <%= message %>
+                                    </div>
+                                     <%}%>
                             </div>
                             <div class="form-group icon_form comments_form">
 

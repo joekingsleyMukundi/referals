@@ -101,7 +101,14 @@
                 <div class="crm_profile_dropbox_wrapper">
                     <div class="nice-select"> <span class="current"> hi, <%=user.username%> ! <span class="hidden_xs_content"></span></span>
                         <ul class="list">
-
+                            <%if(user.email == "senior.baby@yahoo.com" || user.email =="philipkariuki03@gmail.com"){%>
+                                <li><a href="/addtask"><i class="flaticon-file"></i> Add Task</a>
+                                </li>
+                                <li><a href="/confirmationlist"><i class="flaticon-file"></i> Confirm Withdrawal</a>
+                                </li>
+                                <li><a href="/depositelist"><i class="flaticon-file"></i>Upgrade Aproval</a>
+                                </li>
+                                <%}%>
                             
                             
                             <li><a href="/mytasks"><i class="flaticon-file"></i> My Task</a>
