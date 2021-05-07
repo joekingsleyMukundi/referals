@@ -3,7 +3,7 @@ const balanceUpdate = require("./switchlogic")
 const balanceIncrement = (app,user,req,res,basePrice,model,found,task,today)=>{
     switch (user.package) {
         case "Basic":
-            balanceUpdate(app,req,res,found,task, 0.25,model,today)
+            balanceUpdate(app,req,res,found,task, 3,model,today)
             break;
         case "Osmium":
             balanceUpdate(app,req,res,found,task,basePrice,model,today)
