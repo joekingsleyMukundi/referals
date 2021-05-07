@@ -5,10 +5,10 @@ const balanceIncrement = (app,user,req,res,basePrice,model,found,task,today)=>{
         case "Basic":
             balanceUpdate(app,req,res,found,task, 1.5,model,today)
             break;
-        case "Osmium":
+        case "Ostium":
             balanceUpdate(app,req,res,found,task,basePrice,model,today)
             break;
-        case "Iridium":
+        case "Irridium":
             let newBalance = basePrice*3
             balanceUpdate(app,req,res,found,task,newBalance,model,today)
             break;
