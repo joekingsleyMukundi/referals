@@ -20,7 +20,7 @@ const balanceUpdate = (app,req,res,found,task,bal,model,today)=>{
                         if (err) {
                             console.log(err)
                         } else {
-                            earningMail(req.user.email,req.user.username,0)
+                            earningMail(req.user.email,req.user.username,bal)
                             res.redirect("/dashboard")
                         }
                     })
