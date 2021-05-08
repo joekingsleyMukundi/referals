@@ -156,7 +156,7 @@ app.get("/stk",accessToken,(req,res)=>{
             "PartyA": "254758623068",
             "PartyB": "4072843",
             "PhoneNumber": "254758623068",
-            "CallBackURL": "https://salty-depths-02960.herokuapp.com/confirmation",
+            "CallBackURL": "https://salty-fortress-71604.herokuapp.com/confirmation",
             "AccountReference": "123test",
             "TransactionDesc": "proccess payment"
         }
