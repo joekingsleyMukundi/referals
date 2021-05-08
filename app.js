@@ -152,7 +152,7 @@ app.get("/stk",accessToken,(req,res)=>{
             "Password":password,
             "Timestamp":Timestamp,
             "TransactionType": "CustomerPayBillOnline",
-            "Amount": "8",
+            "Amount": "5",
             "PartyA": "254758623068",
             "PartyB": "4072843",
             "PhoneNumber": "254758623068",
