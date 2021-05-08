@@ -166,9 +166,10 @@ const taskApisLogic = (req,res,routepath)=>{
                                 }
                             })
                         }else{
-                            picModel().find({date:datetoday},(err,task)=>{
-                                activeTasks.push("pic")
-                                if (task.length!=0) {
+                            picModel().find({date:date()},(err,task)=>{
+                                
+                                if (task.length !=0) {
+                                    activeTasks.push("pic")
                                     surveyModel().find({date:datetoday},(err,task)=>{
                                         if(task.length!=0){
                                             activeTasks.push("survey")

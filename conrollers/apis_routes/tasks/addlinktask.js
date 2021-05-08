@@ -7,7 +7,7 @@ const addlinkApi = (app)=>{
             adminTaskApiController(app)
             const docs = {
                 status:"active",
-                task:req.body.task,
+                task:req.body.linkshve,
                 link:req.body.link,
                 date:date(),
                 baseAmount:req.body.baseamount,

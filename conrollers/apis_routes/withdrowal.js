@@ -27,43 +27,48 @@ const withdrowalApiController = (app)=>{
             dashboardApiController(app)
             if(req.isAuthenticated()){
                 if(req.body.amount<=req.user.balance){
-                    var today = new Date();
-                if(today.getDay() == 5){
-                    const todayDate = date()
-                    const transIdorg = randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
-                    const transId = transIdorg.slice(0,9)
-                    const withdraw ={
-                        userid:req.user.id,
-                        userName:req.user.username,
-                        usernumber:req.user.phone,
-                        amount:req.body.amount,
-                        date:todayDate,
-                        aproved:false,
-                        transactionCode:transId,
-                    }
-                    withdrowalModel().create(withdraw,(err,data)=>{
-                        if(err){
-                            console.log(err)
-                        }else{
-                            console.log(data)
-                            const newBalance = req.user.balance-req.body.amount
-                            const newPendingOrder = Number(req.user.pendingWithdrowal) + Number(req.body.amount)
-                            UserModel().updateOne({_id:req.user.id},{balance:newBalance,pendingWithdrowal:newPendingOrder},(err)=>{
-                                if (err) {
+                    if(req.body.amount >=100){
+                        var today = new Date();
+                        if(today.getDay() == 5){
+                            const todayDate = date()
+                            const transIdorg = randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
+                            const transId = transIdorg.slice(0,9)
+                            const withdraw ={
+                                userid:req.user.id,
+                                userName:req.user.username,
+                                usernumber:req.user.phone,
+                                amount:req.body.amount,
+                                date:todayDate,
+                                aproved:false,
+                                transactionCode:transId,
+                            }
+                            withdrowalModel().create(withdraw,(err,data)=>{
+                                if(err){
                                     console.log(err)
                                 }else{
-                                    withdrowalMail(req.user.email,req.user.username,req.body.amount,transId)
-                                    res.redirect("/dashboard")
+                                    console.log(data)
+                                    const newBalance = req.user.balance-req.body.amount
+                                    const newPendingOrder = Number(req.user.pendingWithdrowal) + Number(req.body.amount)
+                                    UserModel().updateOne({_id:req.user.id},{balance:newBalance,pendingWithdrowal:newPendingOrder},(err)=>{
+                                        if (err) {
+                                            console.log(err)
+                                        }else{
+                                            withdrowalMail(req.user.email,req.user.username,req.body.amount,transId)
+                                            res.redirect("/dashboard")
+                                        }
+                                    })
+                                    
                                 }
-                            })
-                            
-                        }
 
-                    })
-                }else{
-                    req.flash("message","Withdrawals are  only done on Fridays ")
-                    res.redirect("/withdraw")
-                };
+                            })
+                        }else{
+                            req.flash("message","Withdrawals are  only done on Fridays ")
+                            res.redirect("/withdraw")
+                        };
+                    }else{
+                        req.flash("message","Minimum withdrawal is 100 KSH ")
+                        res.redirect("/withdraw")
+                    }
                 }else{
                     req.flash("message","you cant withdraw more than you have as balance.Please check your balance and try again")
                     res.redirect("/withdraw")
