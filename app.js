@@ -170,7 +170,7 @@ app.get("/stk",accessToken,(req,res)=>{
 })
 app.post("/callback",(req,res)=>{
     console.log("....stk...")
-    console.log(req.body)
+    console.log(req)
 })
 
 //start of listener
