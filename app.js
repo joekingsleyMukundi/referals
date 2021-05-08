@@ -152,8 +152,8 @@ app.get("/registerurl",accessToken,(req,res)=>{
         data : {
             "ShortCode": "603021",
             "ResponseType": "complete",
-            "ConfirmationURL": "https://salty-cove-52561.herokuapp.com/confirmation",
-            "ValidationURL": "https://salty-cove-52561.herokuapp.com/validation"
+            "ConfirmationURL": "https://www.goldlinebreeze.com/confirmation",
+            "ValidationURL": "https://www.goldlinebreeze.com/validation"
           }
     })
     .then((response)=>{
