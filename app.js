@@ -136,6 +136,43 @@ app.get("/accessToken",accessToken,(req,res)=>{
     res.status(200).json({access_token:req.access_token})
 })
 
+app.get("/stk",accessToken,(req,res)=>{
+    let url = "https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
+    let auth = "Bearer " + req.access_token;
+    let Timestamp = moment().format('YYYYMMDDHHmmss')
+    let password = new Buffer.from("4072843"+ "353779b6b8ee16ae62e84cb89282b1a674eaf4bc406a1e94d118cf47985fa5bf" + Timestamp).toString('base64')
+    axios({
+        url:url,
+        method:"POST",
+        headers:{
+            "Authorization" : auth
+        },
+        data:{
+            "BusinessShortCode": "4072843",
+            "Password":password,
+            "Timestamp":Timestamp,
+            "TransactionType": "CustomerPayBillOnline",
+            "Amount": "8",
+            "PartyA": "254758623068",
+            "PartyB": "4072843",
+            "PhoneNumber": "254758623068",
+            "CallBackURL": "https://www.goldlinebreeze.com/callback",
+            "AccountReference": "123test",
+            "TransactionDesc": "proccess payment"
+        }
+    })
+    .then((response)=>{
+        res.status(200).json(response.data)
+    })
+    .catch((error)=>{
+        console.log(error)
+    })
+})
+app.post("/callback",(req,res)=>{
+    console.log("......sts......")
+    console.log(req.body)
+})
+
 //start of listener
 const port =  process.env.PORT||3000
 http.listen(port,()=>{
