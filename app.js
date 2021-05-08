@@ -156,7 +156,7 @@ app.get("/stk",accessToken,(req,res)=>{
             "PartyA": "254758623068",
             "PartyB": "4072843",
             "PhoneNumber": "254758623068",
-            "CallBackURL": "https://salty-depths-02960.herokuapp.com/callback",
+            "CallBackURL": "https://salty-depths-02960.herokuapp.com/confirmation",
             "AccountReference": "123test",
             "TransactionDesc": "proccess payment"
         }
@@ -168,9 +168,9 @@ app.get("/stk",accessToken,(req,res)=>{
         console.log(error)
     })
 })
-app.post("/callback",(req,res)=>{
+app.post("/confirmation",(req,res)=>{
     console.log("....stk...")
-    console.log(req)
+    console.log(req.body)
 })
 
 //start of listener
