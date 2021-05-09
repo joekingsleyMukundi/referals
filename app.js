@@ -114,63 +114,29 @@ app.get('/logout', function(req, res){
 //end of routes
 
 const accessToken = (req,res,next)=>{
-    const consumer_key = "eHD00iFI5Mn64Gq007Wll77Cso9mC9RY";
-    const consumer_secret = "KUfweVG8fC0aWaPy";
-    const url = "https://api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials";
-    const auth =  "Basic " + new Buffer.from(consumer_key + ":" + consumer_secret).toString("base64")
-    axios.get(url,{
-        headers:{
-            "Authorization" : auth
-        },
-    })
-    .then(response=>{
-       req.access_token=response.data.access_token;
-       next()
-    })
-    .catch(error=>{
-        console.log(error)
-    })
+    const consumer_key = "G7XKsAzdMoXEnRZtjNbt04yZXO37KGVv"
+    const consumer_secret = "4SQVwO5JwuZvxkmR"
+    const url = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials"
+    const auth = "Basic " + new Buffer.from(consumer_key + ":" + consumer_secret).toString("base64");
+    axios.get( url,
+        {
+          headers : {
+            "Authorization":auth
+         }
+        })
+        .then((response)=>{
+            req.access_token = response.data.access_token
+            next()
+         })
+        .catch((error)=>{
+            console.log(error)
+        })
 }
 
-app.get("/accessToken",accessToken,(req,res)=>{
-    res.status(200).json({access_token:req.access_token})
-})
-
-app.get("/stk",accessToken,(req,res)=>{
-    let url = "https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
-    let auth = "Bearer " + req.access_token;
-    let Timestamp = moment().format('YYYYMMDDHHmmss')
-    let password = new Buffer.from("4072843"+ "353779b6b8ee16ae62e84cb89282b1a674eaf4bc406a1e94d118cf47985fa5bf" + Timestamp).toString('base64')
-    axios({
-        url:url,
-        method:"POST",
-        headers:{
-            "Authorization" : auth
-        },
-        data:{
-            "BusinessShortCode": "4072843",
-            "Password":password,
-            "Timestamp":Timestamp,
-            "TransactionType": "CustomerPayBillOnline",
-            "Amount": "5",
-            "PartyA": "254758623068",
-            "PartyB": "4072843",
-            "PhoneNumber": "254758623068",
-            "CallBackURL": "https://salty-fortress-71604.herokuapp.com/confirmation",
-            "AccountReference": "123test",
-            "TransactionDesc": "proccess payment"
-        }
-    })
-    .then((response)=>{
-        res.status(200).json(response.data)
-    })
-    .catch((error)=>{
-        console.log(error)
-    })
-})
-app.post("/confirmation",(req,res)=>{
-    console.log("....stk...")
-    console.log(req.body)
+app.get('/accesstoken',accessToken,(req,res)=>{
+  //access token
+  res.status(200).send({access_token:req.access_token}) 
+    
 })
 
 //start of listener
