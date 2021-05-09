@@ -176,6 +176,31 @@ app.post("/validation",(req,res)=>{
    
 })
 
+app.get("/simulate",accessToken,(req,res)=>{
+    let url = "https://sandbox.safaricom.co.ke/mpesa/c2b/v1/simulate"
+    let auth = "Bearer " + req.access_token;
+    axios ({
+        url:url,
+        method:"POST",
+        headers:{
+            "Authorization" : auth
+        },
+        data:{
+            "ShortCode":"603021",
+            "CommandID":"CustomerPayBillOnline",
+            "Amount":"100",
+            "Msisdn":"254708374149",
+            "BillRefNumber":"TestApi"
+        },
+    })
+    .then((response)=>{
+        res.status(200).json(response.data)
+    })
+    .catch((error)=>{
+        console.log(error)
+    })
+})
+
 //start of listener
 const port =  process.env.PORT||3000
 http.listen(port,()=>{
