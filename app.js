@@ -210,7 +210,7 @@ app.get("/stk",accessToken,(req,res)=>{
     const url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest";
     const auth ="Bearer " + req.access_token;
     const timeStamp =moment().format("YYYYMMDDHHmmss");
-    const password = new Buffer.from("174379"+ "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919" + Timestamp).toString('base64')
+    const password = new Buffer.from("174379"+ "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919" + timeStamp).toString('base64')
     request({
         method: 'POST',
         url : url,
