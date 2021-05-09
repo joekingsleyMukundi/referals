@@ -152,8 +152,8 @@ app.get("/registerurl",accessToken,(req,res)=>{
         data : {
             "ShortCode": "603021",
             "ResponseType": "complete",
-            "ConfirmationURL": "https://salty-depths-02960.herokuapp.com/confirmationurl",
-            "ValidationURL": "https://salty-depths-02960.herokuapp.com/validationurl"
+            "ConfirmationURL": "https://www.goldlinebreeze.com/confirmation",
+            "ValidationURL": "https://www.goldlinebreeze.com/validation"
           }
     })
     .then((response)=>{
@@ -164,13 +164,13 @@ app.get("/registerurl",accessToken,(req,res)=>{
     })
 })
 
-app.post("/confirmationurl",(req,res)=>{
+app.post("/confirmation",(req,res)=>{
     console.log('.....confirmation ......')
     console.log(req.body)
     
 })
 
-app.post("/validationurl",(req,res)=>{
+app.post("/validationl",(req,res)=>{
     console.log('.....validation ......')
     console.log(req.body)
    
@@ -221,7 +221,7 @@ app.get("/stk",accessToken,(req,res)=>{
             "PartyA": "254758623068",
             "PartyB": "174379",
             "PhoneNumber": "254758623068",
-            "CallBackURL": "https://salty-depths-02960.herokuapp.com/callback",
+            "CallBackURL": "https://www.goldlinebreeze.com/callback",
             "AccountReference": "123test",
             "TransactionDesc": "proccess payment"
         }
