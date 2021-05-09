@@ -139,6 +139,43 @@ app.get('/accesstoken',accessToken,(req,res)=>{
     
 })
 
+app.get("/registerurl",accessToken,(req,res)=>{
+    let url="https://sandbox.safaricom.co.ke/mpesa/c2b/v1/registerurl"
+    let auth = "Bearer " + req.access_token
+
+    axios({
+        url:url,
+        method:'POST',
+        headers:{
+            "Authorization" : auth
+        },
+        data : {
+            "ShortCode": "603021",
+            "ResponseType": "complete",
+            "ConfirmationURL": "https://www.goldlinebreeze.com/confirmation",
+            "ValidationURL": "https://www.goldlinebreeze.com/validation"
+          }
+    })
+    .then((response)=>{
+         res.status(200).json(response.data)
+    })
+    .catch((error)=>{
+        console.log(error)
+    })
+})
+
+app.post("/confirmation",(req,res)=>{
+    console.log('.....confirmation ......')
+    console.log(req.body)
+    
+})
+
+app.post("/validation",(req,res)=>{
+    console.log('.....validation ......')
+    console.log(req.body)
+   
+})
+
 //start of listener
 const port =  process.env.PORT||3000
 http.listen(port,()=>{
