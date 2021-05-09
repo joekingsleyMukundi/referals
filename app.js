@@ -150,7 +150,7 @@ app.get("/registerurl",accessToken,(req,res)=>{
             "Authorization" : auth
         },
         json : {
-            "ShortCode": " 603021",
+            "ShortCode": "603021",
             "ResponseType": "complete",
             "ConfirmationURL": "https://www.goldlinebreeze.com/confirmation",
             "ValidationURL": "https://www.goldlinebreeze.com/validation_url"
