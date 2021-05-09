@@ -46,6 +46,7 @@ const upload = multer({storage:storage});
 app.set("view engine", "ejs");
 app.use(express.static("public"))
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json())
 //passport
 app.use(session({
     secret:"thisisourlitlesecret",
