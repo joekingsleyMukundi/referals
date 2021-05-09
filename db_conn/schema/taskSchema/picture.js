@@ -4,6 +4,7 @@ const picSchema = new mongoose.Schema({
     picture:String,
     date:String,
     baseAmount:String,
+    description:String,
     userComplete:[String],
 })
 module.exports=picSchema

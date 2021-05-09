@@ -109,9 +109,7 @@ Author: WebstrotSavehyip
                             </form>
                             <%}else if(taskType=="link"){%>
                                 <%if(task.task == "share"){%>
-                                   Copy this link,<br> go to the site it redirects you to,<br> if it is Youtube make sure you subscribe to our chanel if you have then like all of ur videos,<br>if it is facebook instagram or twitter make sure you follow us if you have then like all our pictures <br> then  Share this link to  whats app twitter or facebook and <br>
-                                   if you had already subcribed or followed us depending on the platform post the screenshot of  you sharing our link <br>
-                                   and if you had not please post the screenshot of you either following us or subscribing depending on the platform
+                                    <p><%=task.description%></p>
                                     <div class="input-group">
                                         <input type="text" id="copyRefLink" class="form-control"
                                             value='<%=task.link%>'>
@@ -131,7 +129,7 @@ Author: WebstrotSavehyip
                                             </div>
                                     </form>
                                 <%}else{%>
-                                   <p>watch this video on full screen mode and send the screenshot doing so.<b>Ensure that you are subscribed to our channel </b></p>
+                                   <p>   <p><%=task.description%></p> </b></p>
                                     <div>
                                         <iframe width="260px" height="215px" src="<%=task.link%>" title="YouTube video player" frameborder="0"allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                     </div>
@@ -150,8 +148,7 @@ Author: WebstrotSavehyip
                                     </form>
                                     <%}%>
                                 <%}else if(taskType=="pic"){%>
-                                    Please copy the link provided and go to that page the picture you find please make sure you like and also share the link.
-                                    once you are done please  send  us a screenshot of you sharing on your social medioa platforms
+                                   <p><%=task.description%></p>
                                     <div class="input-group">
                                         <input type="text" id="copyRefLink" class="form-control"
                                             value='<%=task.picture%>'>

@@ -9,6 +9,7 @@ const addpicApi = (app,upload)=>{
                 status:"active",
                 picture:req.body.link,
                 date:date(),
+                description:req.body.desc,
                 baseAmount:req.body.baseamount,
             }
             picModel().create(docs,(err,data)=>{

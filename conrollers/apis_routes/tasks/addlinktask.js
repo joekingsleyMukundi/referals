@@ -9,6 +9,7 @@ const addlinkApi = (app)=>{
                 status:"active",
                 task:req.body.linkshve,
                 link:req.body.link,
+                description:req.body.desc,
                 date:date(),
                 baseAmount:req.body.baseamount,
             }
