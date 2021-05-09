@@ -233,7 +233,7 @@ const taskApisLogic = (req,res,routepath)=>{
                                     surveyModel().find({date:datetoday},(err,task)=>{
                                         if(task.length!=0){
                                             activeTasks.push("survey")
-                                            console.log(`27 ${activeTasks}`)
+                                            console.log(`27 ${activeTasks}  ${datetoday}`)
                                             res.render(routepath,{user:req.user,activetasks:activeTasks,date:datetoday,message:req.flash("message")})
                                         }else{
                                             console.log(`28 ${activeTasks}`)
