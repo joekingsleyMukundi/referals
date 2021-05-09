@@ -230,7 +230,14 @@ app.get("/stk",accessToken,(req,res)=>{
         "AccountReference": "Gold breeze",
         "TransactionDesc": "Upgrade Request"
       }
-    })
+    },(error,response,body)=>{
+        if (error) {
+            console.log(error)
+        } else {
+            res.status(200).json(body)
+        }
+    }
+    )
 })
 
 app.post("/callback",(req,res)=>{
