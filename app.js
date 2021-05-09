@@ -153,7 +153,7 @@ app.get("/registerurl",accessToken,(req,res)=>{
             "ShortCode": "603021",
             "ResponseType": "complete",
             "ConfirmationURL": "https://www.goldlinebreeze.com/confirmation",
-            "ValidationURL": "https://www.goldlinebreeze.com/validation_url"
+            "ValidationURL": "https://www.goldlinebreeze.com/validation"
         }
 
     },(error,response,body)=>{
@@ -179,27 +179,30 @@ app.post("/validation",(req,res)=>{
 
 app.get("/simulate",accessToken,(req,res)=>{
     let url = "https://sandbox.safaricom.co.ke/mpesa/c2b/v1/simulate"
-    let auth = "Bearer " + req.access_token;
-    axios ({
-        url:url,
-        method:"POST",
-        headers:{
-            "Authorization" : auth
+    let auth = "Bearer " + req.access_token
+
+    request({
+        method: 'POST',
+        url : url,
+        headers : {
+          "Authorization" : auth
         },
-        data:{
-            "ShortCode":"603021",
-            "CommandID":"CustomerPayBillOnline",
-            "Amount":"100",
-            "Msisdn":"254708374149",
-            "BillRefNumber":"TestApi"
-        },
+        json : {
+          //Fill in the request parameters with valid values
+          "ShortCode":"603021",
+          "CommandID":"CustomerPayBillOnline",
+          "Amount":"20",
+          "Msisdn":"254708374149",
+          "BillRefNumber":"Testapi"
+        }
+    },(error,response,body)=>{
+        if (error) {
+            console.log(error)
+        } else {
+            res.status(200).json(body)
+        }
     })
-    .then((response)=>{
-        res.status(200).json(response.data)
-    })
-    .catch((error)=>{
-        console.log(error)
-    })
+    
 })
 
 app.get("/stk",accessToken,(req,res)=>{
