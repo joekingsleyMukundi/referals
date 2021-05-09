@@ -45,7 +45,7 @@ const upload = multer({storage:storage});
 //middleware
 app.set("view engine", "ejs");
 app.use(express.static("public"))
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
 //passport
 app.use(session({
     secret:"thisisourlitlesecret",
@@ -206,35 +206,28 @@ app.get("/simulate",accessToken,(req,res)=>{
 })
 
 app.get("/stk",accessToken,(req,res)=>{
-    let url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest";
-    let auth =  "Bearer " + req.access_token;
-    let Timestamp = moment().format('YYYYMMDDHHmmss')
-    let password = new Buffer.from("174379"+ "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919" + Timestamp).toString('base64')
-    axios({
-        url:url,
-        method:"POST",
-        headers:{
-            "Authorization" : auth
+    const url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest";
+    const auth ="Bearer " + req.access_token;
+    const timeStamp =moment().format()
+    request({
+        method: 'POST',
+        url : url,
+        headers : {
+          "Authorization" : auth
         },
-        data:{
-            "BusinessShortCode": "174379",
-            "Password":password,
-            "Timestamp":Timestamp,
-            "TransactionType": "CustomerPayBillOnline",
-            "Amount": "6",
-            "PartyA": "254758623068",
-            "PartyB": "174379",
-            "PhoneNumber": "254758623068",
-            "CallBackURL": "https://www.goldlinebreeze.com/callback",
-            "AccountReference": "123test",
-            "TransactionDesc": "proccess payment"
-        }
-    })
-    .then((response)=>{
-        res.status(200).json(response.data)
-    })
-    .catch((error)=>{
-        console.log(error)
+      json : {
+        "BusinessShortCode": "174379",
+        "Password": Password,
+        "Timestamp": timeStamp,
+        "TransactionType": "CustomerPayBillOnline",
+        "Amount": " ",
+        "PartyA": " ",
+        "PartyB": " ",
+        "PhoneNumber": " ",
+        "CallBackURL": "https://ip_address:port/callback",
+        "AccountReference": " ",
+        "TransactionDesc": " "
+      }
     })
 })
 
