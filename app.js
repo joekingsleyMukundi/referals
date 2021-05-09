@@ -1,5 +1,6 @@
 const express = require("express");
 const axios = require("axios")
+const request = require("request")
 const moment = require("moment")
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -114,8 +115,8 @@ app.get('/logout', function(req, res){
 //end of routes
 
 const accessToken = (req,res,next)=>{
-    const consumer_key = "eHD00iFI5Mn64Gq007Wll77Cso9mC9RY"
-    const consumer_secret = "KUfweVG8fC0aWaPy"
+    const consumer_key = "	Mapbel8Z09sY69hF4cNGBoiA4V7AkdWg"
+    const consumer_secret = "X6MgwKjUIfsTrKhb"
     const url = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials"
     const auth = "Basic " + new Buffer.from(consumer_key + ":" + consumer_secret).toString("base64");
     axios.get( url,
@@ -142,25 +143,25 @@ app.get('/accesstoken',accessToken,(req,res)=>{
 app.get("/registerurl",accessToken,(req,res)=>{
     let url="https://sandbox.safaricom.co.ke/mpesa/c2b/v1/registerurl"
     let auth = "Bearer " + req.access_token
-
-    axios({
-        url:url,
-        method:'POST',
-        headers:{
+    request({
+        method: 'POST',
+        url : url,
+        headers : {
             "Authorization" : auth
         },
-        data : {
-            "ShortCode": "603021",
-            "ResponseType": "complete",
+        json : {
+            "ShortCode": " 603021",
+            "ResponseType": "Complete",
             "ConfirmationURL": "https://www.goldlinebreeze.com/confirmation",
             "ValidationURL": "https://www.goldlinebreeze.com/validation_url"
-          }
-    })
-    .then((response)=>{
-         res.status(200).json(response.data)
-    })
-    .catch((error)=>{
-        console.log(error)
+        }
+
+    },(error,response,body)=>{
+        if(error){
+            console.log(error)
+        }else{
+            res.status(200).json(body)
+        }
     })
 })
 
