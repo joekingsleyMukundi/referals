@@ -115,7 +115,7 @@ app.get('/logout', function(req, res){
 //end of routes
 
 const accessToken = (req,res,next)=>{
-    const consumer_key = "	Mapbel8Z09sY69hF4cNGBoiA4V7AkdWg"
+    const consumer_key = "Mapbel8Z09sY69hF4cNGBoiA4V7AkdWg"
     const consumer_secret = "X6MgwKjUIfsTrKhb"
     const url = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials"
     const auth = "Basic " + new Buffer.from(consumer_key + ":" + consumer_secret).toString("base64");
