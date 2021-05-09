@@ -209,7 +209,8 @@ app.get("/simulate",accessToken,(req,res)=>{
 app.get("/stk",accessToken,(req,res)=>{
     const url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest";
     const auth ="Bearer " + req.access_token;
-    const timeStamp =moment().format()
+    const timeStamp =moment().format("YYYYMMDDHHmmss");
+    const password = new Buffer.from("174379"+ "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919" + Timestamp).toString('base64')
     request({
         method: 'POST',
         url : url,
@@ -218,16 +219,16 @@ app.get("/stk",accessToken,(req,res)=>{
         },
       json : {
         "BusinessShortCode": "174379",
-        "Password": Password,
+        "Password": password,
         "Timestamp": timeStamp,
         "TransactionType": "CustomerPayBillOnline",
-        "Amount": " ",
-        "PartyA": " ",
-        "PartyB": " ",
-        "PhoneNumber": " ",
-        "CallBackURL": "https://ip_address:port/callback",
-        "AccountReference": " ",
-        "TransactionDesc": " "
+        "Amount": "5",
+        "PartyA": "254706373252",
+        "PartyB": "174379",
+        "PhoneNumber": "254706373252",
+        "CallBackURL": "https://salty-depths-02960.herokuapp.com/callback",
+        "AccountReference": "Gold breeze",
+        "TransactionDesc": "Upgrade Request"
       }
     })
 })
