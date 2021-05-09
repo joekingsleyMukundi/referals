@@ -142,7 +142,7 @@ app.get('/accesstoken',accessToken,(req,res)=>{
 
 app.get("/registerurl",accessToken,(req,res)=>{
     let url="https://sandbox.safaricom.co.ke/mpesa/c2b/v1/registerurl"
-    let auth = "Bearer " + req.access_token
+    let auth ="Bearer " + req.access_token
     request({
         method: 'POST',
         url : url,
@@ -151,7 +151,7 @@ app.get("/registerurl",accessToken,(req,res)=>{
         },
         json : {
             "ShortCode": " 603021",
-            "ResponseType": "Complete",
+            "ResponseType": "complete",
             "ConfirmationURL": "https://www.goldlinebreeze.com/confirmation",
             "ValidationURL": "https://www.goldlinebreeze.com/validation_url"
         }
