@@ -170,7 +170,7 @@ app.post("/confirmation",(req,res)=>{
     
 })
 
-app.post("/validationl",(req,res)=>{
+app.post("/validation",(req,res)=>{
     console.log('.....validation ......')
     console.log(req.body)
    
