@@ -114,8 +114,8 @@ app.get('/logout', function(req, res){
 //end of routes
 
 const accessToken = (req,res,next)=>{
-    const consumer_key = "G7XKsAzdMoXEnRZtjNbt04yZXO37KGVv"
-    const consumer_secret = "4SQVwO5JwuZvxkmR"
+    const consumer_key = "eHD00iFI5Mn64Gq007Wll77Cso9mC9RY"
+    const consumer_secret = "KUfweVG8fC0aWaPy"
     const url = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials"
     const auth = "Basic " + new Buffer.from(consumer_key + ":" + consumer_secret).toString("base64");
     axios.get( url,
@@ -153,7 +153,7 @@ app.get("/registerurl",accessToken,(req,res)=>{
             "ShortCode": "603021",
             "ResponseType": "complete",
             "ConfirmationURL": "https://www.goldlinebreeze.com/confirmation",
-            "ValidationURL": "https://www.goldlinebreeze.com/validation"
+            "ValidationURL": "https://www.goldlinebreeze.com/validation_url"
           }
     })
     .then((response)=>{
