@@ -29,6 +29,8 @@ const downlinesApiController = require("./conrollers/apis_routes/downlines")
 const plansApiController = require("./conrollers/apis_routes/deposit")
 const depositListApiController = require("./conrollers/apis_routes/confirmdepo")
 const downgradeFtn = require("./functions/packagedowngrade")
+const accessToken = require("./mpesautils/accessToken")
+const accessTakenApiController = require("./conrollers/apis_routes/getaccessToken")
 const cron = require('node-cron');
 const multer = require("multer");
 const app = express();
@@ -67,22 +69,22 @@ passport.serializeUser(function (user, done) {
     });
 });
 //end of passport
-//start of force https
-app.enable('trust proxy');
+// //start of force https
+// app.enable('trust proxy');
 
-// Add a handler to inspect the req.secure flag (see 
-// http://expressjs.com/api#req.secure). This allows us 
-// to know whether the request was via http or https.
-app.use (function (req, res, next) {
-        if (req.secure) {
-                // request was via https, so do no special handling
-                next();
-        } else {
-                // request was via http, so redirect to https
-                res.redirect('https://' + req.headers.host + req.url);
-        }
-});
-// //end of force https
+// // Add a handler to inspect the req.secure flag (see 
+// // http://expressjs.com/api#req.secure). This allows us 
+// // to know whether the request was via http or https.
+// app.use (function (req, res, next) {
+//         if (req.secure) {
+//                 // request was via https, so do no special handling
+//                 next();
+//         } else {
+//                 // request was via http, so redirect to https
+//                 res.redirect('https://' + req.headers.host + req.url);
+//         }
+// });
+// // //end of force https
 app.use("/uploads",express.static("/uploads"))
 app.use("/tasks/uploads",express.static("/uploads"))
 //cronjob
@@ -109,37 +111,14 @@ confirmationListApiController(app)
 downlinesApiController(app)
 plansApiController(app)
 depositListApiController(app)
+accessTakenApiController(app)
 app.get('/logout', function(req, res){
     req.logout();
     res.redirect('/');
   });
 //end of routes
 
-const accessToken = (req,res,next)=>{
-    const consumer_key = "Mapbel8Z09sY69hF4cNGBoiA4V7AkdWg"
-    const consumer_secret = "X6MgwKjUIfsTrKhb"
-    const url = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials"
-    const auth = "Basic " + new Buffer.from(consumer_key + ":" + consumer_secret).toString("base64");
-    axios.get( url,
-        {
-          headers : {
-            "Authorization":auth
-         }
-        })
-        .then((response)=>{
-            req.access_token = response.data.access_token
-            next()
-         })
-        .catch((error)=>{
-            console.log(error)
-        })
-}
 
-app.get('/accesstoken',accessToken,(req,res)=>{
-  //access token
-  res.status(200).send({access_token:req.access_token}) 
-    
-})
 
 app.get("/registerurl",accessToken,(req,res)=>{
     let url="https://sandbox.safaricom.co.ke/mpesa/c2b/v1/registerurl"
@@ -204,45 +183,6 @@ app.get("/simulate",accessToken,(req,res)=>{
         }
     })
     
-})
-
-app.get("/stk",accessToken,(req,res)=>{
-    const url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest";
-    const auth ="Bearer " + req.access_token;
-    const timeStamp =moment().format("YYYYMMDDHHmmss");
-    const password = new Buffer.from("174379"+ "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919" + timeStamp).toString('base64')
-    request({
-        method: 'POST',
-        url : url,
-        headers : {
-          "Authorization" : auth
-        },
-      json : {
-        "BusinessShortCode": "174379",
-        "Password": password,
-        "Timestamp": timeStamp,
-        "TransactionType": "CustomerPayBillOnline",
-        "Amount": "5",
-        "PartyA": "254706373252",
-        "PartyB": "174379",
-        "PhoneNumber": "254706373252",
-        "CallBackURL": "https://salty-depths-02960.herokuapp.com/callback",
-        "AccountReference": "Gold breeze",
-        "TransactionDesc": "Upgrade Request"
-      }
-    },(error,response,body)=>{
-        if (error) {
-            console.log(error)
-        } else {
-            res.status(200).json(body)
-        }
-    }
-    )
-})
-
-app.post("/callback",(req,res)=>{
-    console.log("......sts......")
-    console.log(req.body)
 })
 //start of listener
 const port =  process.env.PORT||3000
