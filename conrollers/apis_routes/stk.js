@@ -27,7 +27,7 @@ const stkApiController = (app)=>{
                     "Amount": "6",
                     "PartyA": "254706373252",
                     "PartyB": "4072843",
-                    "PhoneNumber": "4072843",
+                    "PhoneNumber": "254706373252",
                     "CallBackURL": "https://salty-depths-02960.herokuapp.com/callback",
                     "AccountReference": "Goldline Technololgy",
                     "TransactionDesc": "Upgrade Package"
