@@ -1,5 +1,10 @@
-const { default: axios } = require("axios");
-const timeDate = require("../../functions/dateTime");
+const express = require("express");
+const axios = require("axios")
+const request = require("request")
+const moment = require("moment")
+const bodyParser = require("body-parser");
+const app = express();
+app.use(bodyParser.json())
 const accessToken = require("../../mpesautils/accessToken")
 const stkApiController = (app)=>{
     app.route("/stk")
@@ -42,3 +47,5 @@ const stkApiController = (app)=>{
             console.log(req.body)
         })
 }
+
+module.exports=stkApiController

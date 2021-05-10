@@ -31,6 +31,7 @@ const depositListApiController = require("./conrollers/apis_routes/confirmdepo")
 const downgradeFtn = require("./functions/packagedowngrade")
 const accessToken = require("./mpesautils/accessToken")
 const accessTakenApiController = require("./conrollers/apis_routes/getaccessToken")
+const stkApiController = require("./conrollers/apis_routes/stk")
 const cron = require('node-cron');
 const multer = require("multer");
 const app = express();
@@ -112,6 +113,7 @@ downlinesApiController(app)
 plansApiController(app)
 depositListApiController(app)
 accessTakenApiController(app)
+stkApiController(app)
 app.get('/logout', function(req, res){
     req.logout();
     res.redirect('/');
