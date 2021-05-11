@@ -9,7 +9,7 @@ const dashboardApiController = (app)=>{
                     if (err) {
                         console.log(err)
                     } else {
-                        res.render("dashboard",{user:req.user,docs:docs})
+                        res.render("dashboard",{user:req.user,docs:docs,message:req.flash("message")})
                     }
                 })
             }else{

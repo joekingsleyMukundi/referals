@@ -9,6 +9,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 const accessToken = require("../../mpesautils/accessToken")
 const homeApiController = require("./home")
 const plansApiController = require("./deposit")
+const dashboardApiController = require("./dashboard")
 const stkApiController = (app)=>{
     app.route("/stk/:package")
         .post(accessToken,(req,res)=>{
@@ -51,9 +52,15 @@ const stkApiController = (app)=>{
         })
     app.route("/callback")
         .post((req,res)=>{
-            homeApiController(app)
-            console.log("......sts......")
-            console.log(req.body)
+            dashboardApiController(app)
+            if (req.body.Body.stkCallback.ResultDesc == "The service request is processed successfully.") {
+               const data = req.body.Body.stkCallback.CallbackMetadata
+               console.log(data)
+            } else {
+                const mes= req.body.Body.stkCallback.ResultDesc
+                req.flash("message",`Hey ${mes}`)
+                res.redirect("/dashboard")
+            }
         })
 }
 
