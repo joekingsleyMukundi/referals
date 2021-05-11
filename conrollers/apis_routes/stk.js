@@ -14,6 +14,7 @@ const dashboardApiController = require("./dashboard")
 const {depositMail} = require ("../../mails/sendmail")
 const upgradeModel = require("../../db_conn/models/upgrade")
 const referabonous = require("../apis_logic/referalbonous")
+const date = require("../../utils/date")
 const stkApiController = (app)=>{
     app.route("/stk/:package")
         .post(accessToken,(req,res)=>{
@@ -64,6 +65,7 @@ const stkApiController = (app)=>{
                     if(err){
                         console.log(err)
                     }else{
+                        let datetoday = date()
                         if (req.body.Body.stkCallback.ResultDesc == "The service request is processed successfully.") {
                             const data = req.body.Body.stkCallback.CallbackMetadata
                             const info = data.Item
