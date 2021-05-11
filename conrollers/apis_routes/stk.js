@@ -74,8 +74,10 @@ const stkApiController = (app)=>{
                      if(error){
                          console.log(error)
                      }else{
+                         console.log(info[0].Value)
                          switch (info[0].Value) {
                              case "5":
+                                console.log("hey")
                                  depositMail(req.user.fullname,req.user.phone,info[0].Value,info[1].Value,"Ostium")
                                  referabonous(req,res,"Ostium",info[0].Value)
                                  break;
