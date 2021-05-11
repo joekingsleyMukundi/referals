@@ -5,6 +5,7 @@ const moment = require("moment")
 const bodyParser = require("body-parser");
 const app = express();
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended:true}));
 const accessToken = require("../../mpesautils/accessToken")
 const homeApiController = require("./home")
 const plansApiController = require("./deposit")
