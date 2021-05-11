@@ -160,116 +160,148 @@ Author: WebstrotSavehyip
                     <div class="col-md-12 col-lg-12 col-sm-12 col-12">
                         <div class="payment_radio_btn_wrapper float_left">
                            
-                            <form action="/upgrade_to/<%=package%>" method="post">
+                            <form action="/stk/<%=package%>" method="post">
                                 <p> 
                                     <% switch (package){
                                         case "Ostium":%>
                                         <span style="font-weight: bold;">Step 1:</span> choose a plan that satisfies you <br>
                                         <span style="font-weight: bold;">Step 2:</span> You will be brought to this page <br>
                                         <span style="font-weight: bold;">Step 3:</span> Your selected plan is Ostium <br>
-                                        <span style="font-weight: bold;">Step 4:</span> Go To M_Pesa: <br>
-                                        <span style="font-weight: bold;">Step 5:</span> Select Lipa na M_Pesa: <br>
-                                        <span style="font-weight: bold;">Step 6:</span> Select Buy Goods and Services: <br>
-                                        <span style="font-weight: bold;">Step 7:</span> Till number is <span style="font-weight: bold;">5579735</span> <br>
-                                        <span style="font-weight: bold;">Step 8:</span> The amount for this package is : <span style="font-weight: bold;">500</span> <br>
+                                        <div class="change_field">
+                                            <label>Amount Sent :</label>
+                                            <input type="text" name="amount" value="500" disabled>
+                                         </div>
+                                        <span style="font-weight: bold;">Step 9:</span> Enter Mpesa Number  <span style="font-weight: bold;"> 254 fomart</span>:<br>
+                                        <div class="change_field">
+                                            <label> M_Pesa Number (<b> NOTE WITH OUT (+)</b>) :</label>
+                                            <input type="text" name="phone" placeholder="254701178928">
+                                         </div>
+                                        <span style="font-weight: bold;">Step 9:</span> You will be redirected to your M_Pesa <br>
                                         <span style="font-weight: bold;">Step 9:</span> Enter your pin: <br>
-                                        <span style="font-weight: bold;">Step 10:</span> Once you receive the confirmation message  send us the  M_Pesa code<br>
+                                        <span style="font-weight: bold;">Step 10:</span> Once we receive the confirmation message You will be redirected to the Dashboard<br>
                                         <%break
                                         case "Irridium":%>
                                         <span style="font-weight: bold;">Step 1:</span> choose a plan that satisfies you <br>
                                         <span style="font-weight: bold;">Step 2:</span> You will be brought to this page <br>
                                         <span style="font-weight: bold;">Step 3:</span> Your selected plan is Irridium <br>
-                                        <span style="font-weight: bold;">Step 4:</span> Go To M_Pesa: <br>
-                                        <span style="font-weight: bold;">Step 5:</span> Select Lipa na M_Pesa: <br>
-                                        <span style="font-weight: bold;">Step 6:</span> Select Buy Goods and Services: <br>
-                                        <span style="font-weight: bold;">Step 7:</span> Till number is <span style="font-weight: bold;">5579735</span> <br>
-                                        <span style="font-weight: bold;">Step 8:</span> The amount for this package is : <span style="font-weight: bold;">1500</span> <br>
+                                        <div class="change_field">
+                                            <label>Amount Sent :</label>
+                                            <input type="text" name="amount" value="1500" disabled>
+                                         </div>
+                                        <span style="font-weight: bold;">Step 9:</span> Enter Mpesa Number  <span style="font-weight: bold;"> 254 fomart</span>:<br>
+                                        <div class="change_field">
+                                            <label> M_Pesa Number (<b> NOTE WITH OUT (+)</b>) :</label>
+                                            <input type="text" name="phone" placeholder="254701178928">
+                                         </div>
+                                        <span style="font-weight: bold;">Step 9:</span> You will be redirected to your M_Pesa <br>
                                         <span style="font-weight: bold;">Step 9:</span> Enter your pin: <br>
-                                        <span style="font-weight: bold;">Step 10:</span> Once you receive the confirmation message  send us the  M_Pesa code<br>
+                                        <span style="font-weight: bold;">Step 10:</span> Once we receive the confirmation message You will be redirected to the Dashboard<br>
                                         <%break
                                         case "Rhodium":%>
                                         <span style="font-weight: bold;">Step 1:</span> choose a plan that satisfies you <br>
                                         <span style="font-weight: bold;">Step 2:</span> You will be brought to this page <br>
                                         <span style="font-weight: bold;">Step 3:</span> Your selected plan is Rhodium <br>
-                                        <span style="font-weight: bold;">Step 4:</span> Go To M_Pesa: <br>
-                                        <span style="font-weight: bold;">Step 5:</span> Select Lipa na M_Pesa: <br>
-                                        <span style="font-weight: bold;">Step 6:</span> Select Buy Goods and Services: <br>
-                                        <span style="font-weight: bold;">Step 7:</span> Till number is <span style="font-weight: bold;">5579735</span> <br>
-                                        <span style="font-weight: bold;">Step 8:</span> The amount for this package is : <span style="font-weight: bold;">5000</span> <br>
+                                        <div class="change_field">
+                                            <label>Amount Sent :</label>
+                                            <input type="text" name="amount" value="5000" disabled>
+                                         </div>
+                                        <span style="font-weight: bold;">Step 9:</span> Enter Mpesa Number  <span style="font-weight: bold;"> 254 fomart</span>:<br>
+                                        <div class="change_field">
+                                            <label> M_Pesa Number (<b> NOTE WITH OUT (+)</b>) :</label>
+                                            <input type="text" name="phone" placeholder="254701178928">
+                                         </div>
+                                        <span style="font-weight: bold;">Step 9:</span> You will be redirected to your M_Pesa <br>
                                         <span style="font-weight: bold;">Step 9:</span> Enter your pin: <br>
-                                        <span style="font-weight: bold;">Step 10:</span> Once you receive the confirmation message  send us the  M_Pesa code<br>
+                                        <span style="font-weight: bold;">Step 10:</span> Once we receive the confirmation message You will be redirected to the Dashboard<br>
                                         <%break
                                         case "Ruthenium":%>
                                         <span style="font-weight: bold;">Step 1:</span> choose a plan that satisfies you <br>
                                         <span style="font-weight: bold;">Step 2:</span> You will be brought to this page <br>
                                         <span style="font-weight: bold;">Step 3:</span> Your selected plan is Ruthenium <br>
-                                        <span style="font-weight: bold;">Step 4:</span> Go To M_Pesa: <br>
-                                        <span style="font-weight: bold;">Step 5:</span> Select Lipa na M_Pesa: <br>
-                                        <span style="font-weight: bold;">Step 6:</span> Select Buy Goods and Services: <br>
-                                        <span style="font-weight: bold;">Step 7:</span> Till number is <span style="font-weight: bold;">5579735</span> <br>
-                                        <span style="font-weight: bold;">Step 8:</span> The amount for this package is : <span style="font-weight: bold;">15000</span> <br>
+                                        <div class="change_field">
+                                            <label>Amount Sent :</label>
+                                            <input type="text" name="amount" value="15000" disabled>
+                                         </div>
+                                        <span style="font-weight: bold;">Step 9:</span> Enter Mpesa Number  <span style="font-weight: bold;"> 254 fomart</span>:<br>
+                                        <div class="change_field">
+                                            <label> M_Pesa Number (<b> NOTE WITH OUT (+)</b>) :</label>
+                                            <input type="text" name="phone" placeholder="254701178928">
+                                         </div>
+                                        <span style="font-weight: bold;">Step 9:</span> You will be redirected to your M_Pesa <br>
                                         <span style="font-weight: bold;">Step 9:</span> Enter your pin: <br>
-                                        <span style="font-weight: bold;">Step 10:</span> Once you receive the confirmation message  send us the  M_Pesa code<br>
+                                        <span style="font-weight: bold;">Step 10:</span> Once we receive the confirmation message You will be redirected to the Dashboard<br>
                                         <%break
                                         case "Palladium":%>
                                         <span style="font-weight: bold;">Step 1:</span> choose a plan that satisfies you <br>
                                         <span style="font-weight: bold;">Step 2:</span> You will be brought to this page <br>
                                         <span style="font-weight: bold;">Step 3:</span> Your selected plan is Palladium <br>
-                                        <span style="font-weight: bold;">Step 4:</span> Go To M_Pesa: <br>
-                                        <span style="font-weight: bold;">Step 5:</span> Select Lipa na M_Pesa: <br>
-                                        <span style="font-weight: bold;">Step 6:</span> Select Buy Goods and Services: <br>
-                                        <span style="font-weight: bold;">Step 7:</span> Till number is <span style="font-weight: bold;">5579735</span> <br>
-                                        <span style="font-weight: bold;">Step 8:</span> The amount for this package is : <span style="font-weight: bold;">40000</span> <br>
+                                        <div class="change_field">
+                                            <label>Amount Sent :</label>
+                                            <input type="text" name="amount" value="40000" disabled>
+                                         </div>
+                                        <span style="font-weight: bold;">Step 9:</span> Enter Mpesa Number  <span style="font-weight: bold;"> 254 fomart</span>:<br>
+                                        <div class="change_field">
+                                            <label> M_Pesa Number (<b> NOTE WITH OUT (+)</b>) :</label>
+                                            <input type="text" name="phone" placeholder="254701178928">
+                                         </div>
+                                        <span style="font-weight: bold;">Step 9:</span> You will be redirected to your M_Pesa <br>
                                         <span style="font-weight: bold;">Step 9:</span> Enter your pin: <br>
-                                        <span style="font-weight: bold;">Step 10:</span> Once you receive the confirmation message  send us the  M_Pesa code<br>
+                                        <span style="font-weight: bold;">Step 10:</span> Once we receive the confirmation message You will be redirected to the Dashboard<br>
                                         <%break
                                         case "Platinum":%>
                                         <span style="font-weight: bold;">Step 1:</span> choose a plan that satisfies you <br>
                                         <span style="font-weight: bold;">Step 2:</span> You will be brought to this page <br>
                                         <span style="font-weight: bold;">Step 3:</span> Your selected plan is Platinum <br>
-                                        <span style="font-weight: bold;">Step 4:</span> Go To M_Pesa: <br>
-                                        <span style="font-weight: bold;">Step 5:</span> Select Lipa na M_Pesa: <br>
-                                        <span style="font-weight: bold;">Step 6:</span> Select Buy Goods and Services: <br>
-                                        <span style="font-weight: bold;">Step 7:</span> Till number is <span style="font-weight: bold;">5579735</span> <br>
-                                        <span style="font-weight: bold;">Step 8:</span> The amount for this package is : <span style="font-weight: bold;">60000</span> <br>
+                                        <div class="change_field">
+                                            <label>Amount Sent :</label>
+                                            <input type="text" name="amount" value="60000" disabled>
+                                         </div>
+                                        <span style="font-weight: bold;">Step 9:</span> Enter Mpesa Number  <span style="font-weight: bold;"> 254 fomart</span>:<br>
+                                        <div class="change_field">
+                                            <label> M_Pesa Number (<b> NOTE WITH OUT (+)</b>) :</label>
+                                            <input type="text" name="phone" placeholder="254701178928">
+                                         </div>
+                                        <span style="font-weight: bold;">Step 9:</span> You will be redirected to your M_Pesa <br>
                                         <span style="font-weight: bold;">Step 9:</span> Enter your pin: <br>
-                                        <span style="font-weight: bold;">Step 10:</span> Once you receive the confirmation message  send us the  M_Pesa code<br>
+                                        <span style="font-weight: bold;">Step 10:</span> Once we receive the confirmation message You will be redirected to the Dashboard<br>
                                         <%break
                                         case "Silver":%>
                                         <span style="font-weight: bold;">Step 1:</span> choose a plan that satisfies you <br>
                                         <span style="font-weight: bold;">Step 2:</span> You will be brought to this page <br>
                                         <span style="font-weight: bold;">Step 3:</span> Your selected plan is Silver <br>
-                                        <span style="font-weight: bold;">Step 4:</span> Go To M_Pesa: <br>
-                                        <span style="font-weight: bold;">Step 5:</span> Select Lipa na M_Pesa: <br>
-                                        <span style="font-weight: bold;">Step 6:</span> Select Buy Goods and Services: <br>
-                                        <span style="font-weight: bold;">Step 7:</span> Till number is <span style="font-weight: bold;">5579735</span> <br>
-                                        <span style="font-weight: bold;">Step 8:</span> The amount for this package is : <span style="font-weight: bold;">80000</span> <br>
+                                        <div class="change_field">
+                                            <label>Amount Sent :</label>
+                                            <input type="text" name="amount" value="80000" disabled>
+                                         </div>
+                                        <span style="font-weight: bold;">Step 9:</span> Enter Mpesa Number  <span style="font-weight: bold;"> 254 fomart</span>:<br>
+                                        <div class="change_field">
+                                            <label> M_Pesa Number (<b> NOTE WITH OUT (+)</b>) :</label>
+                                            <input type="text" name="phone" placeholder="254701178928">
+                                         </div>
+                                        <span style="font-weight: bold;">Step 9:</span> You will be redirected to your M_Pesa <br>
                                         <span style="font-weight: bold;">Step 9:</span> Enter your pin: <br>
-                                        <span style="font-weight: bold;">Step 10:</span> Once you receive the confirmation message  send us the  M_Pesa code<br>
+                                        <span style="font-weight: bold;">Step 10:</span> Once we receive the confirmation message You will be redirected to the Dashboard<br>
                                         <%break
                                         case "Gold":%>
                                         <span style="font-weight: bold;">Step 1:</span> choose a plan that satisfies you <br>
                                         <span style="font-weight: bold;">Step 2:</span> You will be brought to this page <br>
                                         <span style="font-weight: bold;">Step 3:</span> Your selected plan is Gold <br>
-                                        <span style="font-weight: bold;">Step 4:</span> Go To M_Pesa: <br>
-                                        <span style="font-weight: bold;">Step 5:</span> Select Lipa na M_Pesa: <br>
-                                        <span style="font-weight: bold;">Step 6:</span> Select Buy Goods and Services: <br>
-                                        <span style="font-weight: bold;">Step 7:</span> Till number is <span style="font-weight: bold;">5579735</span> <br>
-                                        <span style="font-weight: bold;">Step 8:</span> The amount for this package is : <span style="font-weight: bold;">100000</span> <br>
+                                        <div class="change_field">
+                                            <label>Amount Sent :</label>
+                                            <input type="text" name="amount" value="10000" disabled>
+                                         </div>
+                                        <span style="font-weight: bold;">Step 9:</span> Enter Mpesa Number  <span style="font-weight: bold;"> 254 fomart</span>:<br>
+                                        <div class="change_field">
+                                            <label> M_Pesa Number (<b> NOTE WITH OUT (+)</b>) :</label>
+                                            <input type="text" name="phone" placeholder="254701178928">
+                                         </div>
+                                        <span style="font-weight: bold;">Step 9:</span> You will be redirected to your M_Pesa <br>
                                         <span style="font-weight: bold;">Step 9:</span> Enter your pin: <br>
-                                        <span style="font-weight: bold;">Step 10:</span> Once you receive the confirmation message  send us the  M_Pesa code<br>
+                                        <span style="font-weight: bold;">Step 10:</span> Once we receive the confirmation message You will be redirected to the Dashboard<br>
                                         <%break
                                     } %>
                                     
                                 </p>
-                                <div class="change_field">
-									<label>Amount Sent :</label>
-									<input type="text" name="amount" placeholder="Amount sent">
-                                 </div>
-                                <div class="change_field">
-									<label>M_Pesa code :</label>
-									<input type="text" name="code" placeholder="M_Pesa code">
-                                 </div>
                                 <div class="about_btn float_left">
 
                                     <ul>

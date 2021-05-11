@@ -6,9 +6,10 @@ const bodyParser = require("body-parser");
 const app = express();
 app.use(bodyParser.json())
 const accessToken = require("../../mpesautils/accessToken")
+const homeApiController = require("./home")
 const stkApiController = (app)=>{
-    app.route("/stk")
-        .get(accessToken,(req,res)=>{
+    app.route("/stk/:package")
+        .post(accessToken,(req,res)=>{
             const url = " https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest" 
             const auth =  "Bearer " + req.access_token;
             const timeStamp =moment().format("YYYYMMDDHHmmss");
@@ -24,17 +25,17 @@ const stkApiController = (app)=>{
                     "Password": password,
                     "Timestamp": timeStamp,
                     "TransactionType": "CustomerPayBillOnline",
-                    "Amount": "6",
-                    "PartyA": "254706373252",
+                    "Amount": req.body.amount,
+                    "PartyA": req.body.phone,
                     "PartyB": "4072843",
-                    "PhoneNumber": "254706373252",
+                    "PhoneNumber": req.body.phone,
                     "CallBackURL": "https://salty-depths-02960.herokuapp.com/callback",
                     "AccountReference": "Goldline Technololgy",
                     "TransactionDesc": "Upgrade Package"
                 }
             })
             .then(response=>{
-                res.status(200).json(response.data)
+                console.log(response.data)
             })
             .catch(error=>{
                 console.log(error)
@@ -43,8 +44,10 @@ const stkApiController = (app)=>{
         })
     app.route("/callback")
         .post((req,res)=>{
+            homeApiController(app)
             console.log("......sts......")
             console.log(req.body)
+            res.redirect("/")
         })
 }
 
