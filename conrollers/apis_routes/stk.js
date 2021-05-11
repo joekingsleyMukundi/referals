@@ -11,7 +11,7 @@ const accessToken = require("../../mpesautils/accessToken")
 const homeApiController = require("./home")
 const plansApiController = require("./deposit")
 const dashboardApiController = require("./dashboard")
-const {depositMail} = require ("../../mails/sendmail")
+const {depositMail,stkMail} = require ("../../mails/sendmail")
 const upgradeModel = require("../../db_conn/models/upgrade")
 const referabonous = require("../apis_logic/referalbonous")
 const date = require("../../utils/date")
@@ -53,6 +53,8 @@ const stkApiController = (app)=>{
                 })
                 .catch(error=>{
                     console.log(error)
+                    req.flash("message",`Hey we encountered an error please try areload and try again`)
+                    res.redirect(`/upgrade_plan/${req.params.package}`)
                 })
             }
          
@@ -127,8 +129,8 @@ const stkApiController = (app)=>{
                          } else {
                              const mes= req.body.Body.stkCallback.ResultDesc
                              console.log(mes)
-                             req.flash("message",`Hey ${mes}`)
-                             res.redirect(`/dashboard`)
+                             stkMail(user.fullname,user.email,mes)
+                             return
                          }
                     }
                 })
