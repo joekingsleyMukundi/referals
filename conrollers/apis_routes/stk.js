@@ -56,67 +56,70 @@ const stkApiController = (app)=>{
     app.route("/callback")
         .post((req,res)=>{
             dashboardApiController(app)
-            if (req.body.Body.stkCallback.ResultDesc == "The service request is processed successfully.") {
-               const data = req.body.Body.stkCallback.CallbackMetadata
-               const info = data.Item
-               const docs = {
-                userid:req.user.id,
-                userName:req.user.username,
-                usernumber:info[3].Value,
-                amount:info[0].Value,
-                date:datetoday,
-                aproved:false,
-                transactionCode:info[1].Value,
+            if(req.isAuthenticated()){
+                if (req.body.Body.stkCallback.ResultDesc == "The service request is processed successfully.") {
+                    const data = req.body.Body.stkCallback.CallbackMetadata
+                    const info = data.Item
+                    const docs = {
+                     userid:req.user.id,
+                     userName:req.user.username,
+                     usernumber:info[3].Value,
+                     amount:info[0].Value,
+                     date:datetoday,
+                     aproved:false,
+                     transactionCode:info[1].Value,
+                 }
+                 console.log(docs)
+                 upgradeModel().create(docs,(error,data)=>{
+                     if(error){
+                         console.log(error)
+                     }else{
+                         switch (info[0].Value) {
+                             case "5":
+                                 depositMail(req.user.fullname,req.user.phone,info[0].Value,info[1].Value,"Ostium")
+                                 referabonous(req,res,"Ostium",info[0].Value)
+                                 break;
+                             case "1500":
+                                 depositMail(req.user.fullname,req.user.phone,info[0].Value,info[1].Value,"Irridium")
+                                 referabonous(req,res,"Irridium",info[0].Value)
+                                 break;
+                             case "5000":
+                                 depositMail(req.user.fullname,req.user.phone,info[0].Value,info[1].Value,"Rhodium")
+                                 referabonous(req,res,"Rhodium",info[0].Value)
+                                 break;
+                             case "15000":
+                                 depositMail(req.user.fullname,req.user.phone,info[0].Value,info[1].Value,"Ruthenium")
+                                 referabonous(req,res,"Ruthenium",info[0].Value)
+                                 break;
+                             case "40000":
+                                 depositMail(req.user.fullname,req.user.phone,info[0].Value,info[1].Value,"Palladium")
+                                 referabonous(req,res,"Palladium",info[0].Value)
+                                 break;
+                             case "60000":
+                                 depositMail(req.user.fullname,req.user.phone,info[0].Value,info[1].Value,"Platinum")
+                                 referabonous(req,res,"Platinum",info[0].Value)
+                                 break;
+                             case "80000":
+                                 depositMail(req.user.fullname,req.user.phone,info[0].Value,info[1].Value,"Silver")
+                                 referabonous(req,res,"Silver",info[0].Value)
+                                 break;
+                             case "100000":
+                                 depositMail(req.user.fullname,req.user.phone,info[0].Value,info[1].Value,"Gold")
+                                 referabonous(req,res,"Gold",info[0].Value)
+                                 break;
+                         }
+                        
+                       
+                     }
+                 })
+                 } else {
+                     const mes= req.body.Body.stkCallback.ResultDesc
+                     console.log(mes)
+                     req.flash("message",`Hey ${mes}`)
+                     res.redirect("/dashboard")
+                 }
             }
-            console.log(docs)
-            upgradeModel().create(docs,(error,data)=>{
-                if(error){
-                    console.log(error)
-                }else{
-                    switch (info[0].Value) {
-                        case "5":
-                            depositMail(req.user.fullname,req.user.phone,info[0].Value,info[1].Value,"Ostium")
-                            referabonous(req,res,"Ostium",info[0].Value)
-                            break;
-                        case "1500":
-                            depositMail(req.user.fullname,req.user.phone,info[0].Value,info[1].Value,"Irridium")
-                            referabonous(req,res,"Irridium",info[0].Value)
-                            break;
-                        case "5000":
-                            depositMail(req.user.fullname,req.user.phone,info[0].Value,info[1].Value,"Rhodium")
-                            referabonous(req,res,"Rhodium",info[0].Value)
-                            break;
-                        case "15000":
-                            depositMail(req.user.fullname,req.user.phone,info[0].Value,info[1].Value,"Ruthenium")
-                            referabonous(req,res,"Ruthenium",info[0].Value)
-                            break;
-                        case "40000":
-                            depositMail(req.user.fullname,req.user.phone,info[0].Value,info[1].Value,"Palladium")
-                            referabonous(req,res,"Palladium",info[0].Value)
-                            break;
-                        case "60000":
-                            depositMail(req.user.fullname,req.user.phone,info[0].Value,info[1].Value,"Platinum")
-                            referabonous(req,res,"Platinum",info[0].Value)
-                            break;
-                        case "80000":
-                            depositMail(req.user.fullname,req.user.phone,info[0].Value,info[1].Value,"Silver")
-                            referabonous(req,res,"Silver",info[0].Value)
-                            break;
-                        case "100000":
-                            depositMail(req.user.fullname,req.user.phone,info[0].Value,info[1].Value,"Gold")
-                            referabonous(req,res,"Gold",info[0].Value)
-                            break;
-                    }
-                   
-                  
-                }
-            })
-            } else {
-                const mes= req.body.Body.stkCallback.ResultDesc
-                console.log(mes)
-                req.flash("message",`Hey ${mes}`)
-                res.redirect("/dashboard")
-            }
+           
         })
 }
 
