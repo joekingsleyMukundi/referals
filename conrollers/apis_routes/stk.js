@@ -128,7 +128,7 @@ const stkApiController = (app)=>{
                              const mes= req.body.Body.stkCallback.ResultDesc
                              console.log(mes)
                              req.flash("message",`Hey ${mes}`)
-                             res.redirect("/dashboard")
+                             res.redirect(`/dashboard`)
                          }
                     }
                 })
