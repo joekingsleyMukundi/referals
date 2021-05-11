@@ -58,6 +58,7 @@ const stkApiController = (app)=>{
                console.log(data)
             } else {
                 const mes= req.body.Body.stkCallback.ResultDesc
+                console.log(mes)
                 req.flash("message",`Hey ${mes}`)
                 res.redirect("/dashboard")
             }
