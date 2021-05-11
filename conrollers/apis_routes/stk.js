@@ -7,9 +7,11 @@ const app = express();
 app.use(bodyParser.json())
 const accessToken = require("../../mpesautils/accessToken")
 const homeApiController = require("./home")
+const plansApiController = require("./deposit")
 const stkApiController = (app)=>{
     app.route("/stk/:package")
         .post(accessToken,(req,res)=>{
+            plansApiController(app)
             const url = " https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest" 
             const auth =  "Bearer " + req.access_token;
             const timeStamp =moment().format("YYYYMMDDHHmmss");
@@ -36,6 +38,7 @@ const stkApiController = (app)=>{
             })
             .then(response=>{
                 console.log(response.data)
+               res.redirect(`/upgrade_plan/${req.params.package}`)
             })
             .catch(error=>{
                 console.log(error)
