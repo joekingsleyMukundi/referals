@@ -40,7 +40,7 @@ const stkApiController = (app)=>{
             })
             .then(response=>{
                 console.log(response.data)
-                const mes= response.data.Body.stkCallback.ResultDesc
+                const mes= response.data.CustomerMessage
                 req.flash("message",`Hey ${mes}`)
                res.redirect(`/upgrade_plan/${req.params.package}`)
             })
@@ -54,7 +54,6 @@ const stkApiController = (app)=>{
             homeApiController(app)
             console.log("......sts......")
             console.log(req.body)
-            res.redirect("/")
         })
 }
 
