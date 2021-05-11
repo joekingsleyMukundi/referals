@@ -7,6 +7,5 @@ const upgradeSchema = new mongoose.Schema({
     date:String,
     aproved:Boolean,
     transactionCode:String,
-    package:String,
 })
 module.exports=upgradeSchema
