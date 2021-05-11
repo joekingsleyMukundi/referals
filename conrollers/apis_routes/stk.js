@@ -89,35 +89,35 @@ const stkApiController = (app)=>{
                                      case 5:
                                         console.log("hey")
                                          depositMail(user.fullname,user.phone,info[0].Value,info[1].Value,"Ostium")
-                                         referabonous(req,res,"Ostium",info[0].Value)
+                                         referabonous(user,req,res,"Ostium",info[0].Value)
                                          break;
-                                     case "1500":
+                                     case 1500:
                                          depositMail(user.fullname,user.phone,info[0].Value,info[1].Value,"Irridium")
-                                         referabonous(req,res,"Irridium",info[0].Value)
+                                         referabonous(user,req,res,"Irridium",info[0].Value)
                                          break;
-                                     case "5000":
+                                     case 5000:
                                          depositMail(user.fullname,user.phone,info[0].Value,info[1].Value,"Rhodium")
-                                         referabonous(req,res,"Rhodium",info[0].Value)
+                                         referabonous(user,req,res,"Rhodium",info[0].Value)
                                          break;
-                                     case "15000":
+                                     case 15000:
                                          depositMail(user.fullname,user.phone,info[0].Value,info[1].Value,"Ruthenium")
-                                         referabonous(req,res,"Ruthenium",info[0].Value)
+                                         referabonous(user,req,res,"Ruthenium",info[0].Value)
                                          break;
-                                     case "40000":
+                                     case 40000:
                                          depositMail(user.fullname,user.phone,info[0].Value,info[1].Value,"Palladium")
-                                         referabonous(req,res,"Palladium",info[0].Value)
+                                         referabonous(user,req,res,"Palladium",info[0].Value)
                                          break;
-                                     case "60000":
+                                     case 60000:
                                          depositMail(user.fullname,user.phone,info[0].Value,info[1].Value,"Platinum")
-                                         referabonous(req,res,"Platinum",info[0].Value)
+                                         referabonous(user,req,res,"Platinum",info[0].Value)
                                          break;
-                                     case "80000":
+                                     case 80000:
                                          depositMail(user.fullname,user.phone,info[0].Value,info[1].Value,"Silver")
-                                         referabonous(req,res,"Silver",info[0].Value)
+                                         referabonous(user,req,res,"Silver",info[0].Value)
                                          break;
-                                     case "100000":
+                                     case 100000:
                                          depositMail(user.fullname,user.phone,info[0].Value,info[1].Value,"Gold")
-                                         referabonous(req,res,"Gold",info[0].Value)
+                                         referabonous(user,req,res,"Gold",info[0].Value)
                                          break;
                                  }
                                 

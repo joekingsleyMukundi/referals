@@ -1,17 +1,16 @@
 const User = require("../../db_conn/models/users")
-const referabonous =(req,res,package,pkgAmount)=>{
-    User().findById({_id:req.user.id},(err,user)=>{
+const referabonous =(user,req,res,package,pkgAmount)=>{
+    User().findById({_id:user.id},(err,user)=>{
         if (err) {
             console.log(err)
         } else {
             var myCurrentDate=new Date();
             var myFutureDate=new Date(myCurrentDate);
                 myFutureDate.setDate(myFutureDate.getDate()+ 60)
-            var dd = String(myFutureDate.getDate()).padStart(2, '0');
-            var mm = String(myFutureDate.getMonth() + 1).padStart(2, '0'); //January is 0!
-            var yyyy = myFutureDate.getFullYear();
+            const options= {day:'numeric', month:'long', year:"numeric", timeZone: 'Africa/Nairobi'};
+
         
-            let expDate = mm + '/' + dd + '/' + yyyy;
+            let expDate =myFutureDate.toLocaleDateString("en-IN", options); 
             User().updateOne({_id:user.id},{package:package,packageExp:expDate},(err)=>{
                 if (err) {
                     console.log(err)
