@@ -1,4 +1,5 @@
 const User = require("../../db_conn/models/users")
+const {packageAprovalMail,referalBonusMail} = require("../../mails/sendmail")
 const referabonous =(user,req,res,package,pkgAmount)=>{
     User().findById({_id:user.id},(err,user)=>{
         if (err) {
