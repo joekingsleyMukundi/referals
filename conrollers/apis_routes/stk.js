@@ -15,6 +15,7 @@ const stkApiController = (app)=>{
             plansApiController(app)
             const url = " https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest" 
             const auth =  "Bearer " + req.access_token;
+            console.log(req.body.amount)
             const timeStamp =moment().format("YYYYMMDDHHmmss");
             const password = new Buffer.from("4072843"+ "353779b6b8ee16ae62e84cb89282b1a674eaf4bc406a1e94d118cf47985fa5bf" + timeStamp).toString('base64')
             axios({
