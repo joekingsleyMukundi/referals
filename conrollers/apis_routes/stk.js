@@ -68,6 +68,7 @@ const stkApiController = (app)=>{
                         let datetoday = date()
                         if (req.body.Body.stkCallback.ResultDesc == "The service request is processed successfully.") {
                             const data = req.body.Body.stkCallback.CallbackMetadata
+                            console.log(data)
                             const info = data.Item
                             const docs = {
                              userid:user.id,
@@ -85,7 +86,7 @@ const stkApiController = (app)=>{
                              }else{
                                  console.log(info[0].Value)
                                  switch (info[0].Value) {
-                                     case "5":
+                                     case 5:
                                         console.log("hey")
                                          depositMail(user.fullname,user.phone,info[0].Value,info[1].Value,"Ostium")
                                          referabonous(req,res,"Ostium",info[0].Value)
