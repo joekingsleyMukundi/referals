@@ -40,6 +40,8 @@ const stkApiController = (app)=>{
             })
             .then(response=>{
                 console.log(response.data)
+                const mes= response.data.Body.stkCallback.ResultDesc
+                req.flash("message",`Hey ${mes}`)
                res.redirect(`/upgrade_plan/${req.params.package}`)
             })
             .catch(error=>{
